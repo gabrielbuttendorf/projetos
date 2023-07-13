@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #505050;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+}
+
+#div-semaforos {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    min-width: 300px;
+    max-width: 1250px;
+}
+
+.semaforos {
+    width: 20%;
+    margin: 0px 8px;
+}
+
+.circulo {
+    position: absolute;
+    width: 9vw;
+    height: 9vw;
+    min-width: 29px;
+    max-width: 120px;
+    min-height: 29px;
+    max-height: 120px;
+    border-radius: 50%;
+    z-index: -1;
+    filter: brightness(1.8);
+}
+
+.veiculos { left: 34.2% }
+.pedestres { left: 56.8% }
+
+#vermelho-veiculo {
+    top: 3%;
+    background-color: #f100003a;
+}
+#amarelo-veiculo {
+    top: 29%;
+    background-color: #ffd0003a;
+}
+#verde-veiculo {
+    top: 55.8%;
+    background-color: #1580003a;
+}
+
+#vermelho-pedestre {
+    top: 29%;
+    background-color: #f100003a;
+}
+#verde-pedestre {
+    top: 55.8%;
+    background-color: #1580003a;
+}

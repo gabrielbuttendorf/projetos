@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oi bb</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <section id="section-emoji">
+            <img id="emoji" src="images/emoji.png" alt="Emoji apaixonado">
+        </section>
+        <section id="section-text">
+            <p id="question">Você topa responder algumas perguntinhas?</p>
+            <button id="yes">Sim</button>
+            <button id="no">Não</button>
+        </section>
+        <section id="section-final">
+            <p id="final-message"></p>
+            <p id="thanks-message"></p>
+            <img id="hearts" src="images/hearts.png" alt="Corações">
+        </section>
+        <footer>
+            <a href="" onclick="reload()">Reload</a>
+        </footer>
+    </main>
+
+    <script>
+        var buttonYes = window.document.getElementById('yes')
+        var buttonNo = window.document.getElementById('no')
+        var pQuestion = window.document.getElementById('question')
+        var finalQuestion = ''
+        var thanksMessage = window.document.getElementById('thanks-message')
+        var hearts = window.document.getElementById('hearts')
+
+        buttonYes.addEventListener('click', Next01)
+        buttonNo.addEventListener('click', Position)
+
+        thanksMessage.style.display = 'none'
+        hearts.style.display = 'none'
+
+        function Next01() {
+            pQuestion.innerText = 'Tem certeza?'
+            buttonYes.addEventListener('click', Next02)
+        }
+
+        function Next02() {
+            pQuestion.innerText = 'Eu avisei!'
+            buttonNo.style.display = 'none'
+            buttonYes.innerText = 'OK'
+            buttonYes.addEventListener('click', Next03)
+        }
+        
+        function Next03() {
+            //emoji
+            pQuestion.innerText = 'Aceita ser feliz comigo para sempre?'
+            finalQuestion = pQuestion.innerText
+            buttonYes.innerText = 'Sim'
+            buttonNo.style.display = ''
+            buttonYes.addEventListener('click', Next04)
+        }
+
+        function Next04() {
+            var finalMessage = window.document.getElementById('final-message')
+            finalMessage.innerText = 'Eu te amo muito!'
+            thanksMessage.innerText = 'Obrigado por ser tão especial'
+            thanksMessage.style.display = ''
+            hearts.style.display = ''
+            window.document.getElementById('section-text').style.display = 'none'
+        }
+        
+        var clicks = 0
+
+        function Position() {
+            if (finalQuestion == 'Aceita ser feliz comigo para sempre?') {
+                if (clicks == 0) {
+                    buttonNo.style.position = 'relative'
+                    buttonNo.style.left = '80px'
+                    clicks = 1
+                } else {
+                    buttonNo.style.position = 'relative'
+                    buttonNo.style.left = '0px'
+                    clicks = 0
+                }   
+            }
+        }
+    </script>
+</body>
+</html>
