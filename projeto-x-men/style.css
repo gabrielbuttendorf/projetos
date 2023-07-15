@@ -13,6 +13,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 body::after {
@@ -46,16 +47,19 @@ header img {
 }
 
 main {
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
     max-width: 1460px;
+    height: 70vh;
+    margin: 32px 0px;
 }
 
 /* --------------- Section Cards --------------- */
 #sec-cards, #sec-card-description {
-    width: 46%;
+    width: 40%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -77,22 +81,22 @@ main {
     flex-direction: row;
 }
 
-#sec-cards figure {
+#sec-cards .card-wrapper {
     width: 100%;
     margin: 0px 5px 24px 5px;
     transition: all 0.2s ease;
 }
 
-#sec-cards figure:hover {
+#sec-cards .card-wrapper:hover {
     cursor: pointer;
     box-shadow: 0px 0px 8px 4px #7896cb;
 }
 
-figure .card {
+.card-wrapper .card {
     width: 100%;
 }
 
-#sec-cards figure .horizontal-bar {
+#sec-cards .card-wrapper .horizontal-bar {
     margin-top: -4px;
 }
 
@@ -102,9 +106,10 @@ figure .card {
     align-items: center;
     flex-direction: column;
     width: 100%;
+    text-align: center;
 }
 
-#sec-card-description figure .hero {
+#hero {
     width: 85%;
 }
 
@@ -119,6 +124,27 @@ figure .card {
     margin: 12px 0px;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    padding: 14px 0px;
+}
+
+footer > span {
+    margin: 0px 5px;
+    color: #c1cff7;
+}
+
 @media screen and (max-width: 768px) {
-    
+    main {
+        height: 100%;
+        flex-direction: column;
+    }
+
+    #sec-cards, #sec-card-description {
+        width: 80%;
+    }
 }
