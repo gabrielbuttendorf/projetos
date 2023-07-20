@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #A03333;
+    color: #fff;
+}
+
+.retangulo1, .retangulo2, .retangulo3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.retangulo1 {
+}
+.retangulo2 {
+    z-index: -1;
+}
+.retangulo3 {
+    z-index: -1;
+}
+
+header, main {
+    width: 85%;
+    z-index: 1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+header, svg.btn {
+    font: normal 400 24px 'Bebas Neue', 'sans-serif';
+}
+
+header svg.btn text {
+    font-size: 1em;
+    text-transform: uppercase;
+}
+main svg.btn text {
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+#primeira-section {
+    display: flex;
+}
+
+#primeira-section img {
+    width: 457px;
+}
+
+#titulo1 {
+    font: normal 400 82px 'Bungee Outline', 'sans-serif';
+    vertical-align: baseline;
+}
+#titulo2 {
+    font: normal 400 102px 'Bebas Neue', 'sans-serif';
+    margin-top: -70px; /* diminuir o espaço causado pela fonte do primeiro titulo*/
+}
