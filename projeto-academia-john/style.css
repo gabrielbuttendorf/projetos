@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 * {
     margin: 0;
@@ -13,21 +14,27 @@ body {
     flex-direction: column;
     background-color: #A03333;
     color: #fff;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .retangulo1, .retangulo2, .retangulo3 {
     position: absolute;
     top: 0;
-    right: 0;
+    width: 100vw;
+    height: 100%;
 }
 
 .retangulo1 {
+    position: absolute;
+    right: 0;
 }
+
 .retangulo2 {
     z-index: -1;
 }
 .retangulo3 {
-    z-index: -1;
+    z-index: -2;
 }
 
 header, main {
@@ -40,6 +47,23 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 0px;
+}
+
+.btn-absoluto {
+    position: absolute;
+    top: 7.5px;
+    left: 76%;
+}
+
+header > nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+header > nav a {
+    text-decoration: none;
+    color: #fff;
+    padding-right: 20px;
 }
 
 header, svg.btn {
@@ -59,15 +83,79 @@ main svg.btn text {
     display: flex;
 }
 
+#primeira-section div {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+#primeira-section .div-img {
+    align-items: center;
+}
+
+#primeira-section #descricao {
+    font: normal 400 clamp(14px, 2vw, 18px) 'Montserrat', 'sans-serif';
+    margin-bottom: 24px;
+}
+
+.div-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.div-btn span {
+    position: absolute;
+    left: 24px;
+    top: 8px;
+    text-decoration: none;
+    color: #fff;
+    font: normal 400 32px 'Bebas Neue', 'sans-serif';
+}
+
 #primeira-section img {
-    width: 457px;
+    width: 100%;
+    max-width: 400px;
 }
 
 #titulo1 {
-    font: normal 400 82px 'Bungee Outline', 'sans-serif';
-    vertical-align: baseline;
+    font: normal 400 clamp(14px, 6vw, 80px) 'Bungee Outline', 'sans-serif';
+    line-height: 40px;
+    margin-top: 24px;
 }
 #titulo2 {
-    font: normal 400 102px 'Bebas Neue', 'sans-serif';
-    margin-top: -70px; /* diminuir o espaço causado pela fonte do primeiro titulo*/
+    font: normal 400 clamp(18px, 8vw, 100px) 'Bebas Neue', 'sans-serif';
+    display: block;
+    /* margin-top: -15%; diminuir o espaço causado pela fonte do primeiro titulo */
+}
+
+.barra {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    /* height: 6.5vw; */
+    max-height: 56px;
+    background-color: #222222;
+    margin-top: -10px;
+    overflow: hidden;
+}
+
+.barra .rolar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+    animation: rolar 10s linear infinite;
+}
+
+.barra .rolar > span {
+    font: normal 400 clamp(12px, 4vw, 24px) 'Bebas Neue', 'sans-serif';
+    margin: 0 35px;
+}
+
+@keyframes rolar {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
