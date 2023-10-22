@@ -3,7 +3,7 @@ let campoResultado = document.getElementById('txt-resultado')
 
 //identificar algum clique ----
 const botoes = document.querySelectorAll('.botao-numero, .botao-operador')
-const numerosDigitados = []
+let numerosDigitados = []
 
 botoes.forEach(button => {
     button.addEventListener('click', function(event) {
@@ -26,6 +26,18 @@ function calcularOperacao(operacao) {
     return resultado
 }
 
-//botao de limpar ----
+//botao de limpar (Ac) ----
 const botaoAc = document.getElementById('btn-ac')
-botaoAc
+botaoAc.addEventListener('click', function() {
+    campoNumerosDigitados.innerText = '-'
+    campoResultado.innerText = '-'
+    numerosDigitados = []
+})
+
+//botao de apagar ----
+const botaoApagar = document.getElementById('btn-apagar')
+botaoApagar.addEventListener('click', function() {
+    numerosDigitados.pop()
+    campoNumerosDigitados.innerText = '-'
+    campoNumerosDigitados.innerText = numerosDigitados.join('')
+})
