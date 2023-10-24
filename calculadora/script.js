@@ -41,3 +41,11 @@ botaoApagar.addEventListener('click', function() {
     campoNumerosDigitados.innerText = '-'
     campoNumerosDigitados.innerText = numerosDigitados.join('')
 })
+
+// ------------- não finalizado  -------------
+// const botaoPorcento = document.getElementById('btn-porcento')
+// botaoPorcento.addEventListener('click', function() {
+//     const operacao = numerosDigitados.join('')
+//     const partes = operacao.match(/(\d+(\.\d+)?)([+\-*/])?(\d+(\.\d+)?)/)
+//     console.log(partes)
+// })
