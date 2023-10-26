@@ -4,27 +4,45 @@ let campoResultado = document.getElementById('txt-resultado')
 //identificar algum clique ----
 const botoes = document.querySelectorAll('.botao-numero, .botao-operador')
 let numerosDigitados = []
+let qtdOperador = 0
 
 botoes.forEach(button => {
     button.addEventListener('click', function(event) {
         const valorBotao = event.target.textContent
-        numerosDigitados.push(valorBotao)
-        campoNumerosDigitados.innerText = numerosDigitados.join('')
+        const classeBotao = event.target.className
+        
+        if(classeBotao == 'botao-operador' && valorBotao != '%') {
+            qtdOperador++
+        }
+        if(qtdOperador >= 2) {
+            //arrumar erro de não poder digitar operador 2 vezes seguidas
+            //arumar erro de porcentagem só funciona com adição
+            let resultado = calcularResultado()
+            numerosDigitados = []
+            numerosDigitados.push(resultado)
+            numerosDigitados.push(valorBotao)
+            qtdOperador = 1
+            campoNumerosDigitados.innerText = numerosDigitados.join('')
+            console.log(numerosDigitados)
+        } else {
+            numerosDigitados.push(valorBotao)
+            campoNumerosDigitados.innerText = numerosDigitados.join('')
+        }
     })
 })
 
-//calcular e imprimir o resultado ----
+function calcularResultado() {
+    let operacao = numerosDigitados.join('')
+    let resultadoOperacao = eval(operacao)
+    campoResultado.innerText = resultadoOperacao
+    return resultadoOperacao
+}
+
+//botao igual (=) ----
 const botaoIgual = document.getElementById('btn-igual')
 botaoIgual.addEventListener('click', function() {
-    const operacao = numerosDigitados.join('')
-    const resultado = calcularOperacao(operacao)
-    campoResultado.innerText = resultado
+    calcularResultado()
 })
-
-function calcularOperacao(operacao) {
-    const resultado = eval(operacao)
-    return resultado
-}
 
 //botao de limpar (Ac) ----
 const botaoAc = document.getElementById('btn-ac')
@@ -43,9 +61,13 @@ botaoApagar.addEventListener('click', function() {
 })
 
 // ------------- não finalizado  -------------
-// const botaoPorcento = document.getElementById('btn-porcento')
-// botaoPorcento.addEventListener('click', function() {
-//     const operacao = numerosDigitados.join('')
-//     const partes = operacao.match(/(\d+(\.\d+)?)([+\-*/])?(\d+(\.\d+)?)/)
-//     console.log(partes)
-// })
+const botaoPorcento = document.getElementById('btn-porcento')
+botaoPorcento.addEventListener('click', function() {
+    const operacao = numerosDigitados.join('')
+    const partes = operacao.match(/(\d+(\.\d+)?)([+\-*/])?(\d+(\.\d+)?)/)
+    console.log(partes)
+    campoResultado.innerText = parseFloat(partes[1]) + parseFloat(partes[1] * (partes[4] / 100))
+    //partes[1] - valor que quer operar
+    //partes[3] - sinal da operação principal
+    //partes[4] - valor da porcentagem
+})
