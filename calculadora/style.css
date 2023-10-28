@@ -17,7 +17,28 @@ main {
     height: 95vh;
 }
 
-button {
+#calculadora {
+    border-radius: 8px;
+}
+
+#output {
+    background-color: #fff;
+}
+
+#botoes {
+    background: linear-gradient(45deg, #5695dd, #85bbf8);
+}
+
+#botoes .linha {
+    display: flex;
+    margin-top: 5px;
+}
+
+#botoes #btn-0 {
+    flex-grow: 1;
+}
+
+#botoes button {
     width: 50px;
     height: 50px;
 }
