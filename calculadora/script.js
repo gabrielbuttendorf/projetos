@@ -1,84 +1,112 @@
 let campoResultado = document.getElementById('txt-resultado')
 
-//identificar algum clique ----
 const botoes = document.querySelectorAll('.botao-numero, .botao-operador')
 let numerosDigitados = []
-// let operadores = ['+', '-', '*', '/', '%']
-let ultimaPosicao = 0
+let operadores = ['+', '-', '*', '/', '%']
 let qtdOperador = 0
 let ultimoBotao = null
 
-
 botoes.forEach(button => {
     button.addEventListener('click', function(event) {
-        const valorBotao = event.target.textContent
-        const classeBotao = event.target.className
-        console.log(numerosDigitados)
-        if (classeBotao == 'botao-operador' && ultimoBotao == 'botao-operador') {
-            numerosDigitados.splice(1)
-        } else {
-            if(classeBotao == 'botao-operador' && valorBotao != '%') {
-                qtdOperador++
-            }
-        }
-
-        if(qtdOperador >= 2) {
-            //se digitar operador antes de algum número da erro (não está dando mais)
-            //passar o resultado da porcentagem pra cá
-            let resultado = calcularResultado()
-            numerosDigitados = []
-            numerosDigitados.push(resultado)
-            numerosDigitados.push(valorBotao)
-            qtdOperador = 1
-            campoResultado.innerText = numerosDigitados.join('')
-        } else {
-            numerosDigitados.push(valorBotao)
-            campoResultado.innerText = numerosDigitados.join('')
-        }
-        ultimoBotao = classeBotao
+        usuarioClicou(event)
     })
 })
 
-function calcularResultado() {
-    let operacao = numerosDigitados.join('')
-    let resultadoOperacao = eval(operacao)
-    campoResultado.innerText = resultadoOperacao
-    return resultadoOperacao
-}
-
-//botao igual (=) ----
+//BOTÃO IGUAL | =
 const botaoIgual = document.getElementById('btn-igual')
 botaoIgual.addEventListener('click', function() {
-    calcularResultado()
+    numerosDigitados[0] = calcularResultado()
+    numerosDigitados.splice(1)
+    qtdOperador = 0
 })
 
-//botao de limpar (Ac) ----
+//BOTÃO LIMPAR | AC
 const botaoAc = document.getElementById('btn-ac')
 botaoAc.addEventListener('click', function() {
-    campoResultado.innerText = '-'
+    campoResultado.innerText = 0
     numerosDigitados = []
 })
 
-//botao de apagar ----
+//BOTÃO APAGAR
 const botaoApagar = document.getElementById('btn-apagar')
 botaoApagar.addEventListener('click', function() {
     numerosDigitados.pop()
-    campoResultado.innerText = numerosDigitados.join('')
+    if(numerosDigitados.length > 0) {
+        campoResultado.innerText = numerosDigitados.join('')
+    } else {
+        campoResultado.innerText = 0
+    }
 })
 
-// ------------- não finalizado  -------------
-const botaoPorcento = document.getElementById('btn-porcento')
-botaoPorcento.addEventListener('click', function() {
-    const operacao = numerosDigitados.join('')
-    const partes = operacao.match(/(\d+(\.\d+)?)([+\-*/])?(\d+(\.\d+)?)/)
-    //console.log(partes)
-    let teste = `${parseFloat(partes[1])}${partes[3]}${parseFloat(partes[1] * (partes[4] / 100))}`
-    teste = eval(teste)
-    numerosDigitados = []
-    numerosDigitados.push(teste)
-    campoResultado.innerText = teste
+function calcularResultado(porcentagem) {
+    let operacao = numerosDigitados.join('')
+    if (porcentagem == true) {
+        //partes[1] - valor que quer operar
+        //partes[3] - sinal da operação principal
+        //partes[4] - valor da porcentagem
+        const partes = operacao.match(/(\d+(\.\d+)?)([+\-*/])?(\d+(\.\d+)?)/)
+        let calculoPorcentagem = eval(`${parseFloat(partes[1])}${partes[3]}${parseFloat(partes[1] * (partes[4] / 100))}`)
+        numerosDigitados = []
+        numerosDigitados.push(calculoPorcentagem)
+    } else {
+        try {
+            let resultadoOperacao = eval(operacao)
+            if (isNaN(resultadoOperacao)) {
+                resultadoOperacao = 0
+            }
+            campoResultado.innerText = resultadoOperacao
+            return resultadoOperacao
+        } catch (error) {
+            campoResultado.innerText = 0
+            numerosDigitados = []
+        }
+    }
+}
+
+function usuarioClicou(event) {
+    const valorBotao = event.target.textContent
+    const idBotao = event.target.id
+    const classeBotao = event.target.className
+    let porcentagemCalculada = false
     
-    //partes[1] - valor que quer operar
-    //partes[3] - sinal da operação principal
-    //partes[4] - valor da porcentagem
-})
+    //IMPEDE QUE SEJAM DIGITADOS DOIS OPERADORES SEGUIDAMENTE
+    if (classeBotao == 'botao-operador' && ultimoBotao == 'botao-operador') {
+        numerosDigitados.splice(1)
+    } else {
+
+        //VERIFICA SE O USUÁRIO QUER CALCULAR UMA PORCENTAGEM
+        if (idBotao == 'btn-porcento' && qtdOperador > 0 && operadores.includes(valorBotao)) {
+            porcentagemCalculada = true
+            calcularResultado(porcentagemCalculada)
+        }
+
+        if(classeBotao == 'botao-operador' && valorBotao != '%') {
+            qtdOperador++
+        }
+    }
+
+    //CÁLCULO AUTOMÁTICO AO CLICAR PELA SEGUNDA VEZ EM ALGUM OPERADOR
+    if(qtdOperador >= 2) {
+        let resultado = calcularResultado()
+        numerosDigitados = []
+        numerosDigitados.push(resultado)
+        if (porcentagemCalculada == false) {
+            numerosDigitados.push(valorBotao)
+        }
+        qtdOperador = 1
+        campoResultado.innerText = numerosDigitados.join('')
+    } else {
+        if (porcentagemCalculada == false) {
+            numerosDigitados.push(valorBotao)
+        }
+        campoResultado.innerText = numerosDigitados.join('')
+    }
+    ultimoBotao = classeBotao
+
+    //EVITAR ERRO AO DIGITAR ALGUM OPERADOR ANTES DE UM NÚMERO
+    if(
+        classeBotao == 'botao-operador' && operadores.includes(numerosDigitados[0])) {
+        numerosDigitados = []
+        qtdOperador = 0
+    }
+}
