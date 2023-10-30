@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 * {
     margin: 0;
@@ -19,26 +20,61 @@ main {
 
 #calculadora {
     border-radius: 8px;
+    border: solid 3px rgb(0, 0, 0);
+    border-radius: 22px;
+    box-shadow: 0 4px 2px 0 #5757575b;
 }
 
 #output {
+    display: flex;
+    align-items: end;
+    justify-content: end;
     background-color: #fff;
+    height: 200px;
+    padding: 20px;
+    margin-bottom: -20px;
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: inset 0 -28px 16px 0 rgba(0, 0, 0, 0.090);
+}
+
+#output #txt-resultado {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em;
+    margin-bottom: 16px;
 }
 
 #botoes {
-    background: linear-gradient(45deg, #5695dd, #85bbf8);
+    background: linear-gradient(45deg, #6ab2f5, #88b6fa, #95c9fa);
+    padding: 20px 12px;
+    border-radius: 20px;
 }
 
 #botoes .linha {
     display: flex;
-    margin-top: 5px;
 }
 
 #botoes #btn-0 {
     flex-grow: 1;
 }
 
-#botoes button {
+#botoes .linha button {
     width: 50px;
     height: 50px;
+    margin: 6.5px;
+    border: 0;
+    border-radius: 14%;
+    background-color: rgba(209, 218, 255, 0.678);
+    box-shadow: inset 0px 0px 6px 0px rgba(252, 252, 252, 0.678);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    transition: all 0.1s ease;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(252, 252, 252, 0.58);
+    }
+
+    &:active {
+        transform: scale(0.97);
+    }
 }
