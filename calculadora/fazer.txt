@@ -1,3 +1,5 @@
 - Arrumar problema de multiplicação e divisão de porcentagem
 - Tentar ocultar os sinais / e * e trocar por um elemento de divisão e multiplicação(x)
 - Dark Mode
+- Limitar a 16 caracteres
+- No final, responsividade

@@ -1,3 +1,5 @@
+// document.documentElement.classList.toggle('dark-mode')
+
 let campoResultado = document.getElementById('txt-resultado')
 
 const botoes = document.querySelectorAll('.botao-numero, .botao-operador')
