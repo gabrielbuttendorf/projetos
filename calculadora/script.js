@@ -1,5 +1,3 @@
-// document.documentElement.classList.toggle('dark-mode')
-
 let campoResultado = document.getElementById('txt-resultado')
 
 const botoes = document.querySelectorAll('.botao-numero, .botao-operador')
@@ -112,3 +110,13 @@ function usuarioClicou(event) {
         qtdOperador = 0
     }
 }
+
+//BOTÃO DE TROCAR TEMA
+const botaoTema = document.getElementById('checkbox-tema')
+botaoTema.addEventListener('change', function() {
+    if (botaoTema.checked == true) {
+        document.documentElement.classList.toggle('dark-mode')     
+    } else {
+        document.documentElement.classList.toggle('dark-mode')
+    }
+})

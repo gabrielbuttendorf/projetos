@@ -9,20 +9,30 @@
 
 :root {
     --bodyBackColor: #f0f0f0;
-    --outputBackColor: #fff;
-    --campoBtnGradient-1: #57a9f7e1;
-    --campoBtnGradient-2: #74b6f3;
-    --campoBtnGradient-3: #389fff;
-    --btnBackColor: rgba(209, 218, 255, 0.678);
+    --calculadoraShadow: rgba(87, 87, 87, 0.175);
+    --outputBackColor-1: #fff;
+    --outputBackColor-2: #e7e7e7;
+    --campoBtnGradient-1: #b6deff;
+    --campoBtnGradient-2: #78beff;
+    --campoBtnGradient-3: #309bff;
+    --btnBackColor: rgba(227, 232, 252, 0.300);
+    --btnShadowColor: rgba(252, 252, 252, 0.850);
+    --btnHoverColor: rgba(227, 232, 252, 0.580);
+    --txtFontColor: #000;
 }
 
 .dark-mode:root {
     --bodyBackColor: #4e4e4e;
-    --outputBackColor: #ffffff; /*ajustar*/
-    --campoBtnGradient-1: #022342e1;
-    --campoBtnGradient-2: #082b4d;
-    --campoBtnGradient-3: #04192c;
-    --btnBackColor: rgba(113, 121, 150, 0.678);
+    --calculadoraShadow: rgba(58, 58, 58, 0.600);
+    --outputBackColor-1: #28292A;
+    --outputBackColor-2: #1f2020;
+    --campoBtnGradient-1: #1f485c;
+    --campoBtnGradient-2: #12314b;
+    --campoBtnGradient-3: #0d293f;
+    --btnBackColor: #3f70968f;
+    --btnShadowColor: rgba(8, 25, 43, 0.680);
+    --btnHoverColor: rgba(39, 69, 102, 0.580);
+    --txtFontColor: #fff;
 }
 
 body {
@@ -33,21 +43,20 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 95vh;
+    height: 100vh;
 }
 
 #calculadora {
     border-radius: 8px;
-    border: solid 3px rgb(0, 0, 0);
     border-radius: 22px;
-    box-shadow: 0 4px 2px 0 #5757575b;
+    box-shadow: 0 4px 2px 0 var(--calculadoraShadow);
     max-width: 338px;
 }
 
 #output {
     display: flex;
     flex-direction: column;
-    background-color: var(--outputBackColor);
+    background: linear-gradient(100deg, var(--outputBackColor-1), var(--outputBackColor-2));
     height: 230px;
     padding: 20px;
     margin-bottom: -20px;
@@ -55,7 +64,7 @@ main {
     box-shadow: inset 0 -28px 16px 0 rgba(0, 0, 0, 0.090);
 }
 
-#output #alterar-tema {
+#output #botao-tema {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -71,11 +80,59 @@ main {
 #output #txt-resultado {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8em;
+    color: var(--txtFontColor);
     margin-bottom: 16px;
 }
 
+#checkbox-tema {
+    position: absolute;
+    left: -99999px;
+}
+
+.troca-tema {
+    position: relative;
+}    
+
+.troca-tema::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 49px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: var(--campoBtnGradient-2);
+    transition: all 0.3s ease;
+}
+
+#checkbox-tema:checked + .troca-tema::after {
+    left: 43.5%;
+}
+
+#div-svgs-tema {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 85px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: var(--campoBtnGradient-1);
+    cursor: pointer;
+}
+
+#div-svgs-tema svg {
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+}
+
+#div-svgs-tema svg > path {
+    fill: var(--txtFontColor);
+}
+
 #botoes {
-    background: linear-gradient(45deg, var(--campoBtnGradient-1), var(--campoBtnGradient-2), var(--campoBtnGradient-3));
+    background: linear-gradient(140deg, var(--campoBtnGradient-1), var(--campoBtnGradient-2), var(--campoBtnGradient-3));
     padding: 20px 22px;
     border-radius: 20px;
 }
@@ -95,14 +152,15 @@ main {
     border: 0;
     border-radius: 14%;
     background-color: var(--btnBackColor);
-    box-shadow: inset 0px 0px 6px 0px rgba(252, 252, 252, 0.678);
+    color: var(--txtFontColor);
+    box-shadow: inset 0px 0px 6px 0px var(--btnShadowColor);
     font-family: 'Poppins', sans-serif;
     font-size: 1.3em;
     transition: all 0.1s ease;
 
     &:hover {
         cursor: pointer;
-        background-color: rgba(252, 252, 252, 0.58);
+        background-color: var(--btnHoverColor);
     }
 
     &:active {
@@ -110,33 +168,53 @@ main {
     }
 }
 
-#botao-tema {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 85px;
-    height: 35px;
-    border-radius: 20px;
-    background-color: #8fc9ff;
-}
+@media screen and (max-width: 480px) {
+    main {
+        margin: 40px 0;
+    }
 
-#botao-tema::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 49px;
-    height: 36px;
-    border-radius: 18px;
-    background-color: #389fffe1;
-}
+    #calculadora {
+        max-width: 280px;
+    }
 
-#botao-tema svg {
-    width: 24px;
-    height: 24px;
-    z-index: 1;
-}
+    #output {
+        height: 170px;
+    }
 
-#botao-tema svg > path {
-    fill: #fff;
+    #output #txt-resultado {
+        font-size: 1.4em;
+    }
+
+    #botoes {
+        height: 320px;
+    }
+
+    #botoes .linha button {
+        width: 46px;
+        height: 46px;
+        margin: 6px;
+        font-size: 1.1em;
+    }
+
+    .troca-tema::after {
+        width: 38px;
+        height: 31px;
+        border-radius: 18px;
+    }
+    
+    #checkbox-tema:checked + .troca-tema::after {
+        left: 46%;
+    }
+    
+    #div-svgs-tema {
+        width: 70px;
+        height: 30px;
+        border-radius: 20px;
+    }
+
+    #div-svgs-tema svg {
+        width: 20px;
+        height: 20px;
+    }
+    
 }
