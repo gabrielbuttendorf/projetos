@@ -50,7 +50,7 @@ main {
     border-radius: 8px;
     border-radius: 22px;
     box-shadow: 0 4px 2px 0 var(--calculadoraShadow);
-    max-width: 338px;
+    max-width: 330px;
 }
 
 #output {
@@ -75,6 +75,7 @@ main {
     align-self: flex-end;
     text-align: right;
     margin-top: auto;
+    overflow: hidden;
 }
 
 #output #txt-operacao {
@@ -152,6 +153,9 @@ main {
     flex-grow: 1;
 }
 
+#botoes #btn-apagar svg {
+    margin-bottom: -6px;
+}
 #botoes .linha button {
     width: 56px;
     height: 56px;
@@ -201,6 +205,11 @@ main {
         height: 46px;
         margin: 6px;
         font-size: 1.1em;
+    }
+
+    #botoes #btn-apagar svg {
+        width: 24px;
+        height: 24px;
     }
 
     .troca-tema::after {

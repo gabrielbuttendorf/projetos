@@ -1,10 +1,11 @@
 let campoResultado = document.getElementById('txt-resultado')
 
+let tamanhoJanela = window.innerWidth
 const botoes = document.querySelectorAll('.botao-numero, .botao-operador')
 let numerosDigitados = []
 let operadores = ['+', '-', '*', '/', '%']
 let qtdOperador = 0
-let ultimoBotao = null
+let classeUltimoBotao = null
 let digitouOperador = false
 
 botoes.forEach(button => {
@@ -34,13 +35,90 @@ botaoAc.addEventListener('click', function() {
 //BOTÃO APAGAR
 const botaoApagar = document.getElementById('btn-apagar')
 botaoApagar.addEventListener('click', function() {
-    numerosDigitados.pop()
-    if (numerosDigitados.length > 0) {
-        campoResultado.innerText = numerosDigitados.join('')
+    let valorUltimoBotao = numerosDigitados[numerosDigitados.length-1]
+
+    if (operadores.includes(valorUltimoBotao)) {
+        return
     } else {
-        campoResultado.innerText = 0
+        numerosDigitados.pop()
+        if (numerosDigitados.length > 0) {
+            campoResultado.innerText = numerosDigitados.join('')
+        } else {
+            campoResultado.innerText = 0
+        }
     }
 })
+
+function usuarioClicou(event) {
+    const valorBotao = event.target.value
+    const idBotao = event.target.id
+    const classeBotao = event.target.className
+    let porcentagemCalculada = false
+
+    // diminuirFonte()
+
+    if (classeBotao == 'botao-operador') {
+        digitouOperador = true
+    }
+
+    if (numerosDigitados.length >= 15) {
+        campoResultado.style.fontSize = '1.4em'
+    }
+
+    if (numerosDigitados.length >= 9 && digitouOperador == false || numerosDigitados.length >= 19 && digitouOperador == true) {
+        alert('Tamanho máximo: 9 caracteres')
+    } else {
+        //IMPEDE QUE SEJAM DIGITADOS DOIS OPERADORES SEGUIDAMENTE
+        if (classeBotao == 'botao-operador' && classeUltimoBotao == 'botao-operador') {
+            numerosDigitados.pop()
+        } else {
+    
+            //VERIFICA SE O USUÁRIO QUER CALCULAR UMA PORCENTAGEM
+            if (idBotao == 'btn-porcento' && qtdOperador > 0 && operadores.includes(valorBotao)) {
+                porcentagemCalculada = true
+                calcularResultado(porcentagemCalculada)
+                classeUltimoBotao = ''
+            }
+    
+            if (classeBotao == 'botao-operador' && valorBotao != '%') {
+                qtdOperador++
+            }
+        }
+    
+        //CÁLCULO AUTOMÁTICO AO CLICAR PELA SEGUNDA VEZ EM ALGUM OPERADOR
+        if(qtdOperador >= 2) {
+            let resultado = calcularResultado()
+            numerosDigitados = []
+            numerosDigitados.push(resultado)
+            campoResultado.style.fontSize = '1.8em'
+            if (porcentagemCalculada == false) {
+                numerosDigitados.push(valorBotao)
+            }
+            qtdOperador = 1
+            campoResultado.innerText = numerosDigitados.join('')
+        } else {
+            if (porcentagemCalculada == false) {
+                numerosDigitados.push(valorBotao)
+            }
+            campoResultado.innerText = numerosDigitados.join('')
+        }
+
+        diminuirFonte()
+
+        if (porcentagemCalculada == true) {
+            classeUltimoBotao = ''
+        } else {
+            classeUltimoBotao = classeBotao
+        }
+    
+        //EVITAR ERRO AO DIGITAR ALGUM OPERADOR ANTES DE UM NÚMERO
+        if (
+            classeBotao == 'botao-operador' && operadores.includes(numerosDigitados[0])) {
+            numerosDigitados = []
+            qtdOperador = 0
+        }
+    }
+}
 
 function calcularResultado(porcentagem) {
     digitouOperador = false
@@ -56,6 +134,7 @@ function calcularResultado(porcentagem) {
 
         if (partes[3] == '*' || partes[3] == '/') {
             calculoPorcentagem = eval(`${parseFloat(partes[1])}${partes[3]}${(partes[4] / 100)}`)
+            calculoPorcentagem = arredondarDifPequena(calculoPorcentagem)
         } else {
             calculoPorcentagem = eval(`${parseFloat(partes[1])}${partes[3]}${parseFloat(partes[1] * (partes[4] / 100))}`)
         }
@@ -84,80 +163,28 @@ function calcularResultado(porcentagem) {
     }
 }
 
-function usuarioClicou(event) {
-    const valorBotao = event.target.textContent
-    const idBotao = event.target.id
-    const classeBotao = event.target.className
-    let porcentagemCalculada = false
-
-    diminuirFonte()
-
-    if (classeBotao == 'botao-operador') {
-        digitouOperador = true
+//EVITAR CÁLCULOS DO JS QUE RETORNAM DECIMAL E NA CALCULADORA REAL RETORNAM INTEIRO
+function arredondarDifPequena(numero) {
+    if (Math.abs(numero - Math.round(numero)) < 0.0000000000001) {
+        numero = Math.round(numero)
     }
 
-    if (numerosDigitados.length >= 15) {
-        campoResultado.style.fontSize = '1.4em'
-    }
-
-    if (numerosDigitados.length >= 9 && digitouOperador == false || numerosDigitados.length >= 19 && digitouOperador == true) {
-        alert('Tamanho máximo: 9 caracteres')
-    } else {
-        //IMPEDE QUE SEJAM DIGITADOS DOIS OPERADORES SEGUIDAMENTE
-        if (classeBotao == 'botao-operador' && ultimoBotao == 'botao-operador') {
-            numerosDigitados.pop()
-        } else {
-    
-            //VERIFICA SE O USUÁRIO QUER CALCULAR UMA PORCENTAGEM
-            if (idBotao == 'btn-porcento' && qtdOperador > 0 && operadores.includes(valorBotao)) {
-                porcentagemCalculada = true
-                calcularResultado(porcentagemCalculada)
-                ultimoBotao = ''
-            }
-    
-            if (classeBotao == 'botao-operador' && valorBotao != '%') {
-                qtdOperador++
-            }
-        }
-    
-        //CÁLCULO AUTOMÁTICO AO CLICAR PELA SEGUNDA VEZ EM ALGUM OPERADOR
-        if(qtdOperador >= 2) {
-            let resultado = calcularResultado()
-            numerosDigitados = []
-            numerosDigitados.push(resultado)
-            campoResultado.style.fontSize = '1.8em'
-            if (porcentagemCalculada == false) {
-                numerosDigitados.push(valorBotao)
-            }
-            qtdOperador = 1
-            campoResultado.innerText = numerosDigitados.join('')
-        } else {
-            if (porcentagemCalculada == false) {
-                numerosDigitados.push(valorBotao)
-            }
-            campoResultado.innerText = numerosDigitados.join('')
-        }
-
-        if (porcentagemCalculada == true) {
-            ultimoBotao = ''
-        } else {
-            ultimoBotao = classeBotao
-        }
-    
-        //EVITAR ERRO AO DIGITAR ALGUM OPERADOR ANTES DE UM NÚMERO
-        if (
-            classeBotao == 'botao-operador' && operadores.includes(numerosDigitados[0])) {
-            numerosDigitados = []
-            qtdOperador = 0
-        }
-    }
+    return numero
 }
 
 function diminuirFonte() {
-    if (numerosDigitados.toString().length > 16) {
-        campoResultado.style.fontSize = '1.4em'
-    } else if (numerosDigitados.toString().length > 20) {
-        campoResultado.style.fontSize = '1.2em'
+    if (tamanhoJanela < 480) {
+        if (numerosDigitados.toString().length > 16) {
+            campoResultado.style.fontSize = '1.2em'
+        } else if (numerosDigitados.toString().length > 20) {
+            campoResultado.style.fontSize = '1em'
+        }
+    } else {
+        if (numerosDigitados.toString().length > 16) {
+            campoResultado.style.fontSize = '1.4em'
+        } else if (numerosDigitados.toString().length > 20) {
+            campoResultado.style.fontSize = '1.2em'
+        }
     }
 }
 
@@ -169,4 +196,8 @@ botaoTema.addEventListener('change', function() {
     } else {
         document.documentElement.classList.toggle('dark-mode')
     }
+})
+
+window.addEventListener('resize', function() {
+    tamanhoJanela = this.window.innerWidth
 })

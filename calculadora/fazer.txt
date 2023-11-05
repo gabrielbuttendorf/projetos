@@ -1,4 +1,0 @@
-- Tentar ocultar os sinais / e * e trocar por um elemento de divisão e multiplicação(x)
-- Não deixar apagar operador, somente números
-- Verificar o splice do botão igual para ver se não precisa ser trocado por um pop
-- Adicionar um EPSILON
