@@ -1,3 +1,4 @@
-- Arrumar problema de multiplicação e divisão de porcentagem
 - Tentar ocultar os sinais / e * e trocar por um elemento de divisão e multiplicação(x)
-- Limitar a 16 caracteres
+- Não deixar apagar operador, somente números
+- Verificar o splice do botão igual para ver se não precisa ser trocado por um pop
+- Adicionar um EPSILON

@@ -77,6 +77,12 @@ main {
     margin-top: auto;
 }
 
+#output #txt-operacao {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: var(--txtFontColor);
+}
+
 #output #txt-resultado {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8em;
@@ -102,6 +108,7 @@ main {
     height: 36px;
     border-radius: 18px;
     background-color: var(--campoBtnGradient-2);
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
