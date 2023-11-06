@@ -10,8 +10,8 @@ Projeto de uma calculadora de operações simples usando apenas HTML, CSS e Java
 ## Imagens do Projeto
 
 <div>
-    <img src="images/readme/calculadora-light.PNG" alt="Tema Claro" style="display-inline-block; width: 280px; height: 320px;">
-    <img src="images/readme/calculadora-dark.PNG" alt="Tema Escuro" style="display-inline-block; width: 280px; height: 320px;">
+    <img width="320px" height="400px" src="images/readme/calculadora-light.PNG" alt="Tema Claro" style="display-inline-block;">
+    <img width="320px" height="400px" src="images/readme/calculadora-dark.PNG" alt="Tema Escuro" style="display-inline-block;">
 </div>
 
 ### Tecnologia Utilizadas
