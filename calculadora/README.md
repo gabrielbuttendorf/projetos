@@ -2,7 +2,7 @@
 
 Projeto de uma calculadora de operações simples usando apenas HTML, CSS e JavaScript.
 
-🌐 ACESSE O PROJETO HOSPEDADO [CLICANDO AQUI](https://gabrielbuttendorf.github.io/projetos/calculadora/){:target="_blank"}
+🌐 ACESSE O PROJETO HOSPEDADO [CLICANDO AQUI](https://gabrielbuttendorf.github.io/projetos/calculadora/)
 
 ## Funcionalidades
 
@@ -26,6 +26,6 @@ Projeto de uma calculadora de operações simples usando apenas HTML, CSS e Java
 
 ### Redes Sociais 👨🏻‍💼
 
-- [Linkedin](https://www.linkedin.com/in/gabrielbuttendorf/){:target="_blank"}
-- [Instagram](https://www.instagram.com/bieel.felipe_/){:target="_blank"}
-- [GitHub](https://github.com/gabrielbuttendorf){:target="_blank"}
+- [Linkedin](https://www.linkedin.com/in/gabrielbuttendorf/)
+- [Instagram](https://www.instagram.com/bieel.felipe_/)
+- [GitHub](https://github.com/gabrielbuttendorf)
