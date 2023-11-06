@@ -20,14 +20,14 @@ botaoIgual.addEventListener('click', function() {
     numerosDigitados[0] = calcularResultado()
     numerosDigitados.splice(1)
     qtdOperador = 0
-    diminuirFonte()
+    alterarFonte()
 })
 
 //BOTÃO LIMPAR | AC
 const botaoAc = document.getElementById('btn-ac')
 botaoAc.addEventListener('click', function() {
     digitouOperador = false
-    campoResultado.style.fontSize = '1.8em'
+    alterarFonte()
     campoResultado.innerText = 0
     numerosDigitados = []
 })
@@ -55,7 +55,6 @@ function usuarioClicou(event) {
     const classeBotao = event.target.className
     let porcentagemCalculada = false
 
-    // diminuirFonte()
 
     if (classeBotao == 'botao-operador') {
         digitouOperador = true
@@ -90,7 +89,7 @@ function usuarioClicou(event) {
             let resultado = calcularResultado()
             numerosDigitados = []
             numerosDigitados.push(resultado)
-            campoResultado.style.fontSize = '1.8em'
+            alterarFonte()
             if (porcentagemCalculada == false) {
                 numerosDigitados.push(valorBotao)
             }
@@ -103,7 +102,7 @@ function usuarioClicou(event) {
             campoResultado.innerText = numerosDigitados.join('')
         }
 
-        diminuirFonte()
+        alterarFonte()
 
         if (porcentagemCalculada == true) {
             classeUltimoBotao = ''
@@ -141,7 +140,7 @@ function calcularResultado(porcentagem) {
         
         numerosDigitados = []
         numerosDigitados.push(calculoPorcentagem)
-        campoResultado.style.fontSize = '1.8em'
+        alterarFonte()
     } else {
         try {
             let resultadoOperacao = eval(operacao)
@@ -152,13 +151,13 @@ function calcularResultado(porcentagem) {
                 numerosDigitados = []
             }
 
-            campoResultado.style.fontSize = '1.8em'
+            alterarFonte()
             campoResultado.innerText = resultadoOperacao
             return resultadoOperacao
         } catch (error) {
             campoResultado.innerText = 0
             numerosDigitados = []
-            campoResultado.style.fontSize = '1.8em'
+            alterarFonte()
         }
     }
 }
@@ -172,18 +171,22 @@ function arredondarDifPequena(numero) {
     return numero
 }
 
-function diminuirFonte() {
+function alterarFonte() {
     if (tamanhoJanela < 480) {
         if (numerosDigitados.toString().length > 16) {
             campoResultado.style.fontSize = '1.2em'
         } else if (numerosDigitados.toString().length > 20) {
             campoResultado.style.fontSize = '1em'
+        } else {
+            campoResultado.style.fontSize = '1.4em'
         }
     } else {
         if (numerosDigitados.toString().length > 16) {
             campoResultado.style.fontSize = '1.4em'
         } else if (numerosDigitados.toString().length > 20) {
             campoResultado.style.fontSize = '1.2em'
+        } else {
+            campoResultado.style.fontSize = '1.8em'
         }
     }
 }
