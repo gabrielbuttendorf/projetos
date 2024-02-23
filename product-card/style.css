@@ -7,7 +7,7 @@
   font-family: "Roboto", sans-serif;
 }
 
-html {
+html, body {
   font-size: 62.5%;
 }
 
@@ -34,6 +34,54 @@ main .card {
 
 .card img {
   width: 100%;
-  border: 1px solid red;
+  height: 270px;
+  border: 1px solid #000;
   border-radius: inherit;
+}
+
+.card .title span {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.card .price, .card .choose-color {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .price .original-price {
+  font-size: 1.2rem;
+}
+.card .price .discount-price {
+  font-size: 2.4rem;
+}
+
+.card .choose-color span {
+  font-size: 1.2rem;
+}
+
+.card .choose-color > div {
+  display: flex;
+  gap: 6px;
+}
+
+.card .choose-color .color {
+  width: 24px;
+  height: 24px;
+  background-color: rgb(182, 58, 58);
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 780px) {
+  main {
+    height: auto;
+    flex-direction: column;
+    margin: 24px 0;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  main .card {
+    width: 280px;
+  }
 }
