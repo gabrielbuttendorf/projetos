@@ -1,3 +1,1 @@
-- DIV COLOR FAZER ALGUM TIPO DE BOX-SHADOW INSET IGUAL SITE APPLE
 - Colocar um carrosel nas imagens
-- Preencher fundo das imagens
