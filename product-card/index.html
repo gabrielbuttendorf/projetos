@@ -8,7 +8,7 @@
 </head>
 <body>
   <main>
-    <div class="card">
+    <div class="card card-iphone">
 
       <div id="slider">
         <div id="slides">
@@ -39,10 +39,10 @@
 
           <div id="controls">
             <div class="arrow">
-              <img src="assets/slider-arrow-left.svg" alt="" onclick="prevSlide()">
+              <img src="assets/slider-arrow-left.svg" alt="" onclick="prevSlideIphone()">
             </div>
             <div class="arrow">
-              <img src="assets/slider-arrow-right.svg" alt="" onclick="nextSlide()">
+              <img src="assets/slider-arrow-right.svg" alt="" onclick="nextSlideIphone()">
             </div>
           </div>
         </div>
@@ -81,9 +81,40 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="slider-image">
-        <img src="/assets/mac-midnight/image-01.png" alt="">
+    <div class="card card-mac">
+      
+      <div id="slider">
+        <div id="slides">
+
+          <div class="slide slide_1">
+            <div class="slide-content">
+              <img src="assets/mac-silver/image-01.png" alt="">
+            </div>
+          </div>
+
+          <div class="slide slide_2">
+            <div class="slide-content">
+              <img src="assets/mac-silver/image-02.png" alt="">
+            </div>
+          </div>
+
+          <div id="controls">
+            <div class="arrow">
+              <img src="assets/slider-arrow-left.svg" alt="" onclick="prevSlideMac()">
+            </div>
+            <div class="arrow">
+              <img src="assets/slider-arrow-right.svg" alt="" onclick="nextSlideMac()">
+            </div>
+          </div>
+        </div>
+
+        <div id="bullets">
+          <label for="slide1"></label>
+          <label for="slide2"></label>
+          <label for="slide3"></label>
+          <label for="slide4"></label>
+        </div>
+
       </div>
 
       <div class="title">
