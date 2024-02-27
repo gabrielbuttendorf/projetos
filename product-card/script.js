@@ -37,10 +37,10 @@ showSlide(iphoneSlides, currentSlideIphone)
 showSlide(macSlides, currentSlideMac)
 // FIM SLIDERS
 
-// CHOOSE COLOR
+// CHOOSE COLOR - IPHONE
 const iphoneColorList = ['natural', 'white', 'blue', 'black']
 const iphoneColors = document.querySelectorAll('.iphone.choose-color input')
-const slideImage = document.querySelectorAll('.slide img')
+const iphoneSlideImage = document.querySelectorAll('.card-iphone .slide img')
 
 let iphoneColorSelected = 0
 
@@ -49,12 +49,12 @@ iphoneColors.forEach((colorInput, index) => {
     iphoneColorSelected = iphoneColorList[index]
 
     //TROCA DE CORES + TRANSIÇÃO SUAVE
-    slideImage.forEach(imgElement => {
+    iphoneSlideImage.forEach(imgElement => {
       imgElement.style.opacity = 0
     })
 
     setTimeout(() => {
-      slideImage.forEach((imgElement, index) => {
+      iphoneSlideImage.forEach((imgElement, index) => {
         imgElement.src = `assets/iphone-${iphoneColorSelected}/image-0${index+1}.png`
         imgElement.style.opacity = ''
       })
@@ -63,5 +63,32 @@ iphoneColors.forEach((colorInput, index) => {
 
   })
 })
-// FIM CHOOSE COLOR
+// FIM CHOOSE COLOR - IPHONE
+
+// CHOOSE COLOR - MACBOOK
+const macColorList = ['silver', 'grey', 'midnight']
+const macColors = document.querySelectorAll('.mac.choose-color input')
+const macSlideImage = document.querySelectorAll('.card-mac .slide img')
+
+let macColorSelected = 0
+
+macColors.forEach((colorInput, index) => {
+  colorInput.addEventListener('change', () => {
+    macColorSelected = macColorList[index]
+
+    //TROCA DE CORES + TRANSIÇÃO SUAVE
+    macSlideImage.forEach((imgElement) => {
+      imgElement.style.opacity = 0
+    })
+
+    setTimeout(() => {
+      macSlideImage.forEach((imgElement, index) => {
+        imgElement.src = `assets/mac-${macColorSelected}/image-0${index+1}.png`
+        imgElement.style.opacity = ''
+      })
+    }, 80)
+    //FIM TROCA DE CORES + TRANSIÇÃO SUAVE
+  })
+})
+// FIM CHOOSE COLOR - MACBOOK
 
