@@ -9,8 +9,51 @@
 <body>
   <main>
     <div class="card">
-      <div class="slider-image">
-        <img src="/assets/iphone-black/image-01.png" alt="">
+
+      <div id="slider">
+        <div id="slides">
+
+          <div class="slide slide_1">
+            <div class="slide-content">
+              <img src="assets/iphone-natural/image-01.png" alt="">
+            </div>
+          </div>
+
+          <div class="slide slide_2">
+            <div class="slide-content">
+              <img src="assets/iphone-natural/image-02.png" alt="">
+            </div>
+          </div>
+
+          <div class="slide slide_3">
+            <div class="slide-content">
+              <img src="assets/iphone-natural/image-03.png" alt="">
+            </div>
+          </div>
+
+          <div class="slide slide_4">
+            <div class="slide-content">
+              <img src="assets/iphone-natural/image-04.png" alt="">
+            </div>
+          </div>
+
+          <div id="controls">
+            <div class="arrow">
+              <img src="assets/slider-arrow-left.svg" alt="" onclick="prevSlide()">
+            </div>
+            <div class="arrow">
+              <img src="assets/slider-arrow-right.svg" alt="" onclick="nextSlide()">
+            </div>
+          </div>
+        </div>
+
+        <div id="bullets">
+          <label for="slide1"></label>
+          <label for="slide2"></label>
+          <label for="slide3"></label>
+          <label for="slide4"></label>
+        </div>
+
       </div>
 
       <div class="title">
@@ -22,10 +65,10 @@
         <span class="discount-price">R$ 9.699,00</span>
       </div>
 
-      <div class="choose-color">
+      <div class="iphone choose-color">
         <span>Selecione a cor:</span>
         <div>
-          <input type="radio" name="iphone-color" style="background-color: #bfbbb2;"></input>
+          <input type="radio" name="iphone-color" style="background-color: #bfbbb2;" checked></input>
           <input type="radio" name="iphone-color" style="background-color: #fefdf8;"></input>
           <input type="radio" name="iphone-color" style="background-color: #3d5670;"></input>
           <input type="radio" name="iphone-color" style="background-color: #353535;"></input>
