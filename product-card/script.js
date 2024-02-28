@@ -37,58 +37,36 @@ showSlide(iphoneSlides, currentSlideIphone)
 showSlide(macSlides, currentSlideMac)
 // FIM SLIDERS
 
-// CHOOSE COLOR - IPHONE
+// CHOICE COLOR
 const iphoneColorList = ['natural', 'white', 'blue', 'black']
 const iphoneColors = document.querySelectorAll('.iphone.choose-color input')
 const iphoneSlideImage = document.querySelectorAll('.card-iphone .slide img')
+handleColorChange(iphoneColorList, iphoneColors, iphoneSlideImage, 'iphone')
 
-let iphoneColorSelected = 0
-
-iphoneColors.forEach((colorInput, index) => {
-  colorInput.addEventListener('change', () => {
-    iphoneColorSelected = iphoneColorList[index]
-
-    //TROCA DE CORES + TRANSIÇÃO SUAVE
-    iphoneSlideImage.forEach(imgElement => {
-      imgElement.style.opacity = 0
-    })
-
-    setTimeout(() => {
-      iphoneSlideImage.forEach((imgElement, index) => {
-        imgElement.src = `assets/iphone-${iphoneColorSelected}/image-0${index+1}.png`
-        imgElement.style.opacity = ''
-      })
-    }, 80)
-    //FIM TROCA DE CORES + TRANSIÇÃO SUAVE
-
-  })
-})
-// FIM CHOOSE COLOR - IPHONE
-
-// CHOOSE COLOR - MACBOOK
 const macColorList = ['silver', 'grey', 'midnight']
 const macColors = document.querySelectorAll('.mac.choose-color input')
 const macSlideImage = document.querySelectorAll('.card-mac .slide img')
+handleColorChange(macColorList, macColors, macSlideImage, 'mac')
 
-let macColorSelected = 0
+function handleColorChange(colorList, colors, slideImage, device) {
+  colors.forEach((colorInput, index) => {
+    colorInput.addEventListener('change', () => {
+      const colorSelected = colorList[index]
 
-macColors.forEach((colorInput, index) => {
-  colorInput.addEventListener('change', () => {
-    macColorSelected = macColorList[index]
-
-    //TROCA DE CORES + TRANSIÇÃO SUAVE
-    macSlideImage.forEach((imgElement) => {
-      imgElement.style.opacity = 0
-    })
-
-    setTimeout(() => {
-      macSlideImage.forEach((imgElement, index) => {
-        imgElement.src = `assets/mac-${macColorSelected}/image-0${index+1}.png`
-        imgElement.style.opacity = ''
+      //TROCA DE CORES + TRANSIÇÃO SUAVE
+      slideImage.forEach((imgElement) => {
+        imgElement.style.opacity = 0
       })
-    }, 80)
-    //FIM TROCA DE CORES + TRANSIÇÃO SUAVE
-  })
-})
-// FIM CHOOSE COLOR - MACBOOK
 
+      setTimeout(() => {
+        slideImage.forEach((imgElement, index) => {
+          imgElement.src = `assets/${device}-${colorSelected}/image-0${index+1}.png`
+          imgElement.style.opacity = ''
+        })
+      }, 80)
+      //FIM TROCA DE CORES + TRANSIÇÃO SUAVE
+
+    })
+  })
+}
+// FIM CHOICE COLOR
