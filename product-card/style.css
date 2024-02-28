@@ -35,6 +35,7 @@ main .card {
 
 /* SLIDER STYLES */
 .card #slider {
+  position: relative;
   height: 270px;
 }
 
@@ -92,6 +93,32 @@ main .card {
   transition: opacity 0.2s ease-in-out;
 }
 #controls .arrow:hover {
+  opacity: 1;
+}
+
+#bullets {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 26px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+#bullets label {
+  display: block;
+  background-color: #000;
+  opacity: 0.2;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transition: all 100ms ease-in-out;
+}
+
+#bullets label.active {
   opacity: 1;
 }
 /* FIM SLIDER STYLES */

@@ -2,39 +2,45 @@
 let currentSlideIphone = 0
 let currentSlideMac = 0
 
-function showSlide(slides, n) {
+function showSlide(slides, bullets, n) {
+
   slides.forEach(slide => slide.classList.remove('active'))
+  bullets.forEach(bullet => bullet.classList.remove('active'))
+
   slides[n].classList.add('active')
+  bullets[n].classList.add('active')
 }
 
 //IPHONE
 const iphoneSlides = document.querySelectorAll('.card-iphone .slide')
+const iphoneBullets = document.querySelectorAll('.card-iphone #bullets label')
 
 function nextSlideIphone() {
   currentSlideIphone = (currentSlideIphone + 1) % iphoneSlides.length
-  showSlide(iphoneSlides, currentSlideIphone)
+  showSlide(iphoneSlides, iphoneBullets, currentSlideIphone)
 }
 
 function prevSlideIphone() {
   currentSlideIphone = (currentSlideIphone - 1 + iphoneSlides.length) % iphoneSlides.length
-  showSlide(iphoneSlides, currentSlideIphone)
+  showSlide(iphoneSlides, iphoneBullets, currentSlideIphone)
 }
 
 //MACBOOK
 const macSlides = document.querySelectorAll('.card-mac .slide')
+const macBullets = document.querySelectorAll('.card-mac #bullets label')
 
 function nextSlideMac() {
   currentSlideMac = (currentSlideMac + 1) % macSlides.length
-  showSlide(macSlides, currentSlideMac)
+  showSlide(macSlides, macBullets, currentSlideMac)
 }
 
 function prevSlideMac() {
   currentSlideMac = (currentSlideMac - 1 + macSlides.length) % macSlides.length
-  showSlide(macSlides, currentSlideMac)
+  showSlide(macSlides, macBullets, currentSlideMac)
 }
 
-showSlide(iphoneSlides, currentSlideIphone)
-showSlide(macSlides, currentSlideMac)
+showSlide(iphoneSlides, iphoneBullets, currentSlideIphone)
+showSlide(macSlides, macBullets, currentSlideMac)
 // FIM SLIDERS
 
 // CHOICE COLOR
