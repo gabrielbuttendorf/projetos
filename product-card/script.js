@@ -87,6 +87,46 @@ function showAddCartAlert() {
     timer: 2000
   });
 }
+// FIM CUSTOM ALERT ON CLICK 'ADICIONAR AO CARRINHO'
 
 //PRELOAD IMAGES ANTI-DELAY
+const imagesPreload = [
+  'assets/iphone-natural/image-01.png',
+  'assets/iphone-natural/image-02.png',
+  'assets/iphone-natural/image-03.png',
+  'assets/iphone-natural/image-04.png',
+
+  'assets/iphone-white/image-01.png',
+  'assets/iphone-white/image-02.png',
+  'assets/iphone-white/image-03.png',
+  'assets/iphone-white/image-04.png',
+  
+  'assets/iphone-blue/image-01.png',
+  'assets/iphone-blue/image-02.png',
+  'assets/iphone-blue/image-03.png',
+  'assets/iphone-blue/image-04.png',
+
+  'assets/iphone-black/image-01.png',
+  'assets/iphone-black/image-02.png',
+  'assets/iphone-black/image-03.png',
+  'assets/iphone-black/image-04.png',
+  
+  'assets/mac-silver/image-01.png',
+  'assets/mac-silver/image-02.png',
+  
+  'assets/mac-grey/image-01.png',
+  'assets/mac-grey/image-02.png',
+
+  'assets/mac-midnight/image-01.png',
+  'assets/mac-midnight/image-02.png'
+]
+
+function preloadImages() {
+  for (let i = 0; i < imagesPreload.length; i++) {
+    const img = new Image()
+    img.src = imagesPreload[i]
+  }
+}
+
+window.addEventListener('load', preloadImages)
 //FIM PRELOAD IMAGES ANTI-DELAY
