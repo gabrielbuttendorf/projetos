@@ -87,3 +87,6 @@ function showAddCartAlert() {
     timer: 2000
   });
 }
+
+//PRELOAD IMAGES ANTI-DELAY
+//FIM PRELOAD IMAGES ANTI-DELAY
