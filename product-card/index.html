@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css">
   <link rel="stylesheet" href="style.css">
   <title>Product Card</title>
 </head>
@@ -76,7 +77,7 @@
       </div>
 
       <div class="buttons">
-        <button class="add-to-cart">Adicionar ao carrinho</button>
+        <button class="add-to-cart" onclick="showAddCartAlert()">Adicionar ao carrinho</button>
         <button class="more-details">Clique aqui para mais detalhes</button>
       </div>
     </div>
@@ -134,12 +135,13 @@
       </div>
 
       <div class="buttons">
-        <button class="add-to-cart">Adicionar ao carrinho</button>
+        <button class="add-to-cart" onclick="showAddCartAlert()">Adicionar ao carrinho</button>
         <button class="more-details">Clique aqui para mais detalhes</button>
       </div>
     </div>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

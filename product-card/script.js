@@ -76,3 +76,14 @@ function handleColorChange(colorList, colors, slideImage, device) {
   })
 }
 // FIM CHOICE COLOR
+
+// CUSTOM ALERT ON CLICK 'ADICIONAR AO CARRINHO'
+function showAddCartAlert() {
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Produto adicionado ao carrinho!",
+    showConfirmButton: false,
+    timer: 2000
+  });
+}
