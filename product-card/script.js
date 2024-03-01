@@ -11,7 +11,7 @@ function showSlide(slides, bullets, n) {
   bullets[n].classList.add('active')
 }
 
-//IPHONE
+// IPHONE
 const iphoneSlides = document.querySelectorAll('.card-iphone .slide')
 const iphoneBullets = document.querySelectorAll('.card-iphone #bullets label')
 
@@ -25,7 +25,7 @@ function prevSlideIphone() {
   showSlide(iphoneSlides, iphoneBullets, currentSlideIphone)
 }
 
-//MACBOOK
+// MACBOOK
 const macSlides = document.querySelectorAll('.card-mac .slide')
 const macBullets = document.querySelectorAll('.card-mac #bullets label')
 
@@ -59,7 +59,7 @@ function handleColorChange(colorList, colors, slideImage, device) {
     colorInput.addEventListener('change', () => {
       const colorSelected = colorList[index]
 
-      //TROCA DE CORES + TRANSIÇÃO SUAVE
+      // TROCA DE CORES + TRANSIÇÃO SUAVE
       slideImage.forEach((imgElement) => {
         imgElement.style.opacity = 0
       })
@@ -70,7 +70,7 @@ function handleColorChange(colorList, colors, slideImage, device) {
           imgElement.style.opacity = ''
         })
       }, 80)
-      //FIM TROCA DE CORES + TRANSIÇÃO SUAVE
+      // FIM TROCA DE CORES + TRANSIÇÃO SUAVE
 
     })
   })
@@ -89,7 +89,7 @@ function showAddCartAlert() {
 }
 // FIM CUSTOM ALERT ON CLICK 'ADICIONAR AO CARRINHO'
 
-//PRELOAD IMAGES ANTI-DELAY
+// PRELOAD IMAGES ANTI-DELAY
 const imagesPreload = [
   'assets/iphone-natural/image-01.png',
   'assets/iphone-natural/image-02.png',
@@ -129,4 +129,36 @@ function preloadImages() {
 }
 
 window.addEventListener('load', preloadImages)
-//FIM PRELOAD IMAGES ANTI-DELAY
+// FIM PRELOAD IMAGES ANTI-DELAY
+
+// MORE DETAILS
+const elementMoreDetails = document.querySelector('.more-details')
+const elementsCard = document.querySelectorAll('.card')
+const main = document.querySelector('main')
+const btn = document.querySelector('.card-mac .btn-more-details')
+
+function showMoreDetails() {
+  main.addEventListener('click', function(event) {
+    if (!btn.contains(event.target)) {
+      main.addEventListener('click', close)
+    }
+  })
+
+  elementsCard.forEach((element) => {
+    element.classList.toggle('more-details-active')
+  })
+
+  document.body.classList.toggle('more-details-active')
+  
+  if (elementMoreDetails.style.display == 'block') {
+    elementMoreDetails.style.display = 'none'
+  } else {
+    elementMoreDetails.style.display = 'block'
+  }
+}
+// FIM MORE DETAILS
+
+function close() {
+  elementMoreDetails.style.display = 'none'
+  main.removeEventListener('click', close)
+}

@@ -77,8 +77,8 @@
       </div>
 
       <div class="buttons">
-        <button class="add-to-cart" onclick="showAddCartAlert()">Adicionar ao carrinho</button>
-        <button class="more-details">Clique aqui para mais detalhes</button>
+        <button class="btn-add-to-cart" onclick="showAddCartAlert()">Adicionar ao carrinho</button>
+        <button class="btn-more-details" onclick="showMoreDetails('iphone')">Clique aqui para mais detalhes</button>
       </div>
     </div>
 
@@ -135,11 +135,15 @@
       </div>
 
       <div class="buttons">
-        <button class="add-to-cart" onclick="showAddCartAlert()">Adicionar ao carrinho</button>
-        <button class="more-details">Clique aqui para mais detalhes</button>
+        <button class="btn-add-to-cart" onclick="showAddCartAlert()">Adicionar ao carrinho</button>
+        <button class="btn-more-details" onclick="showMoreDetails('mac')">Clique aqui para mais detalhes</button>
       </div>
     </div>
   </main>
+
+  <div class="more-details">
+    <div class="close-button" onclick="showMoreDetails()"></div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
   <script src="script.js"></script>

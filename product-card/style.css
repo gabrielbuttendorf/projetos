@@ -39,15 +39,7 @@ main .card {
   height: 270px;
 }
 
-.card-iphone .slide {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  transition: all 400ms ease-in-out;
-}
-
-.card-mac .slide {
+.card .slide {
   opacity: 0;
   width: 0;
   height: 0;
@@ -194,7 +186,7 @@ input:checked {
   cursor: pointer;
 }
 
-.card .buttons .add-to-cart {
+.card .buttons .btn-add-to-cart {
   background-color: #28BB1B;
   color: #fff;
   width: 310px;
@@ -202,11 +194,11 @@ input:checked {
   margin-bottom: 14px;
 }
 
-.card .buttons .add-to-cart:hover {
+.card .buttons .btn-add-to-cart:hover {
   background-color: #2bc01e;
 }
 
-.card .buttons .more-details {
+.card .buttons .btn-more-details {
   background-color: transparent;
   color: #6D6D6D;
 
@@ -215,15 +207,61 @@ input:checked {
   transition: text-decoration 120ms ease-in-out;
 }
 
-.card .buttons .more-details:hover {
+.card .buttons .btn-more-details:hover {
   text-decoration: underline #6D6D6D 2px;
 }
+
+/* MORE DETAILS COMPONENT */
+.more-details {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  width: 80vw;
+  height: 700px;
+  max-width: 800px; 
+  border-radius: 8px;
+  z-index: 5;
+  display: none;
+}
+
+.more-details .close-button {
+  width: 40px;
+  height: 40px;
+  background: url(assets/close-button.svg) no-repeat;
+  background-size: cover;
+  margin: 6px;
+  float: right;
+  cursor: pointer;
+  transition: filter 0.125s ease-in-out;
+}
+
+.close-button:hover {
+  filter: brightness(150%);
+}
+
+.more-details-active {
+  backdrop-filter: brightness(50%);
+}
+
+.card.more-details-active {
+  filter: brightness(50%);
+}
+/* FIM MORE DETAILS COMPONENT */
 
 @media screen and (max-width: 780px) {
   main {
     height: auto;
     flex-direction: column;
-    margin: 24px 0;
+    padding: 24px 0;
+  }
+
+  .more-details {
+    width: 95vw;
+    height: 92%;
+    top: 40px;
+    transform: translate(-50%, 0);
   }
 }
 
