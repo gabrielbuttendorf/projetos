@@ -139,26 +139,27 @@ const btn = document.querySelector('.card-mac .btn-more-details')
 
 function showMoreDetails() {
   main.addEventListener('click', function(event) {
-    if (!btn.contains(event.target)) {
-      main.addEventListener('click', close)
+    if (!elementMoreDetails.contains(event.target) && !btn.contains(event.target)) {
+      closeMoreDetails()
     }
   })
 
   elementsCard.forEach((element) => {
-    element.classList.toggle('more-details-active')
+    element.classList.add('more-details-active')
   })
 
-  document.body.classList.toggle('more-details-active')
+  document.body.classList.add('more-details-active')
   
-  if (elementMoreDetails.style.display == 'block') {
-    elementMoreDetails.style.display = 'none'
-  } else {
-    elementMoreDetails.style.display = 'block'
-  }
+  elementMoreDetails.style.display = 'block'
+}
+
+function closeMoreDetails() {
+  elementsCard.forEach((element) => {
+    element.classList.remove('more-details-active')
+  })
+
+  document.body.classList.remove('more-details-active')
+
+  elementMoreDetails.style.display = 'none'
 }
 // FIM MORE DETAILS
-
-function close() {
-  elementMoreDetails.style.display = 'none'
-  main.removeEventListener('click', close)
-}
