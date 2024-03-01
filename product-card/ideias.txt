@@ -1,2 +1,1 @@
-- Ao clicar em 'clique aqui para mais detalhes' aparecer um quadrado no meio da tela com alguns detalhes do dispositivo.
 - Arrumar responsividade abaixo de 370px

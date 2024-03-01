@@ -132,15 +132,16 @@ window.addEventListener('load', preloadImages)
 // FIM PRELOAD IMAGES ANTI-DELAY
 
 // MORE DETAILS
-const elementMoreDetails = document.querySelector('.more-details')
 const elementsCard = document.querySelectorAll('.card')
 const main = document.querySelector('main')
-const btn = document.querySelector('.card-mac .btn-more-details')
 
-function showMoreDetails() {
+function showMoreDetails(device) {
+  const elementMoreDetails = document.querySelector(`.${device}.more-details`)
+  const btnMoreDetails = document.querySelector(`.card-${device} .btn-more-details`)
+
   main.addEventListener('click', function(event) {
-    if (!elementMoreDetails.contains(event.target) && !btn.contains(event.target)) {
-      closeMoreDetails()
+    if (!elementMoreDetails.contains(event.target) && !btnMoreDetails.contains(event.target)) {
+      closeMoreDetails(device)
     }
   })
 
@@ -149,17 +150,17 @@ function showMoreDetails() {
   })
 
   document.body.classList.add('more-details-active')
-  
-  elementMoreDetails.style.display = 'block'
+  elementMoreDetails.classList.add('active')
 }
 
-function closeMoreDetails() {
+function closeMoreDetails(device) {
+  const elementMoreDetails = document.querySelector(`.${device}.more-details`)
+
   elementsCard.forEach((element) => {
     element.classList.remove('more-details-active')
   })
 
   document.body.classList.remove('more-details-active')
-
-  elementMoreDetails.style.display = 'none'
+  elementMoreDetails.classList.remove('active')
 }
 // FIM MORE DETAILS

@@ -222,16 +222,26 @@ input:checked {
   height: 700px;
   max-width: 800px; 
   border-radius: 8px;
+  padding: 36px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.200);
   z-index: 5;
-  display: none;
+
+  opacity: 0;
+  transition: opacity 125ms ease-in-out;
+  pointer-events: none;
+}
+
+.more-details.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .more-details .close-button {
   width: 40px;
   height: 40px;
+  margin: -32px -32px 0 0;
   background: url(assets/close-button.svg) no-repeat;
   background-size: cover;
-  margin: 6px;
   float: right;
   cursor: pointer;
   transition: filter 0.125s ease-in-out;
@@ -239,6 +249,11 @@ input:checked {
 
 .close-button:hover {
   filter: brightness(150%);
+}
+
+.more-details p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
 
 .more-details-active {
