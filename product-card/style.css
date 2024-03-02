@@ -218,7 +218,6 @@ input:checked {
   transform: translate(-50%, -50%);
   background-color: #fff;
   width: 80vw;
-  /* height: 700px; */
   height: 80vh;
   max-width: 800px; 
   border-radius: 8px;
@@ -274,7 +273,7 @@ input:checked {
 
   .more-details {
     width: 95vw;
-    height: 85%;
+    height: 98%;
     top: 10px;
     transform: translate(-50%, 0);
   }
