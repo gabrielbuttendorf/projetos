@@ -162,47 +162,4 @@ function closeMoreDetails(device) {
   document.body.classList.remove('more-details-active')
   elementMoreDetails.classList.remove('active')
 }
-
-/*
-let elementMoreDetails
-const elementsCard = document.querySelectorAll('.card')
-const main = document.querySelector('main')
-
-const ielementMoreDetails = document.querySelector(`.iphone.more-details`)
-const melementMoreDetails = document.querySelector(`.mac.more-details`)
-const mbtnMoreDetails = document.querySelector(`.card-mac .btn-more-details`)
-const ibtnMoreDetails = document.querySelector(`.card-iphone .btn-more-details`)
-
-function showMoreDetails(device) {
-  if (device == 'iphone') {
-    elementMoreDetails = ielementMoreDetails
-  } else {
-    elementMoreDetails = melementMoreDetails
-  }
-
-  main.addEventListener('click', function(event) {
-    if (!elementMoreDetails.contains(event.target) && !ibtnMoreDetails.contains(event.target) && !mbtnMoreDetails.contains(event.target)) {
-      closeMoreDetails(device)
-    }
-  })
-
-  elementsCard.forEach((element) => {
-    element.classList.add('more-details-active')
-  })
-
-  document.body.classList.add('more-details-active')
-  elementMoreDetails.classList.add('active')
-}
-
-function closeMoreDetails(device) {
-  const elementMoreDetails = document.querySelector(`.${device}.more-details`)
-
-  elementsCard.forEach((element) => {
-    element.classList.remove('more-details-active')
-  })
-
-  document.body.classList.remove('more-details-active')
-  elementMoreDetails.classList.remove('active')
-}
-*/
 // FIM MORE DETAILS
