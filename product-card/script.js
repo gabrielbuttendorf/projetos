@@ -134,8 +134,13 @@ window.addEventListener('load', preloadImages)
 // MORE DETAILS
 const elementsCard = document.querySelectorAll('.card')
 const main = document.querySelector('main')
+let currentDevice = null
 
 function showMoreDetails(device) {
+  if (currentDevice && currentDevice !== device) {
+    closeMoreDetails(currentDevice)
+  }
+
   const elementMoreDetails = document.querySelector(`.${device}.more-details`)
 
   main.addEventListener('click', function(event) {
@@ -150,6 +155,8 @@ function showMoreDetails(device) {
 
   document.body.classList.add('more-details-active')
   elementMoreDetails.classList.add('active')
+
+  currentDevice = device
 }
 
 function closeMoreDetails(device) {
@@ -161,5 +168,7 @@ function closeMoreDetails(device) {
 
   document.body.classList.remove('more-details-active')
   elementMoreDetails.classList.remove('active')
+
+  currentDevice = null
 }
 // FIM MORE DETAILS

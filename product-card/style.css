@@ -273,7 +273,8 @@ input:checked {
 
   .more-details {
     width: 95vw;
-    height: 98%;
+    height: auto;
+    padding-bottom: 120px;
     top: 10px;
     transform: translate(-50%, 0);
   }
