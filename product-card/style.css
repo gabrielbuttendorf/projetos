@@ -173,7 +173,7 @@ input:hover {
 input:checked {
   outline-offset: 2px;
   outline: 2px solid #28BB1B;
-} 
+}
 
 .card .buttons button {
   width: 100%;
@@ -189,7 +189,6 @@ input:checked {
 .card .buttons .btn-add-to-cart {
   background-color: #28BB1B;
   color: #fff;
-  width: 310px;
   height: 43px;
   margin-bottom: 14px;
 }
@@ -227,7 +226,7 @@ input:checked {
   z-index: 5;
 
   opacity: 0;
-  transition: opacity 125ms ease-in-out;
+  transition: opacity 140ms ease-in-out;
   pointer-events: none;
 }
 
@@ -274,14 +273,27 @@ input:checked {
 
   .more-details {
     width: 95vw;
-    height: 92%;
-    top: 40px;
+    height: 85%;
+    top: 10px;
     transform: translate(-50%, 0);
+  }
+
+  .more-details .close-button {
+    width: 32px;
+    height: 32px;
   }
 }
 
 @media screen and (max-width: 370px) {
   main .card {
-    width: 280px;
+    width: 300px;
+  }
+
+  .slide-content {
+    width: 260px;
+  }
+
+  .card .buttons button {
+    font-size: 1.45rem;
   }
 }
