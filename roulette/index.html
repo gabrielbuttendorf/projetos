@@ -7,32 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <img class="chocolate-wave" src="wave-01.svg" alt="">
-  <h1>Roleta da <span>Páscoa</span></h1>
+  <div class="chocolate-wave">
+    <img src="wave.svg" alt="">
+  </div>
 
-  <div class="container">
-    <div class="spin-button" onclick="spinWheel()">Spin</div>
-    <div class="wheel">
-      <div class="gift" style="--i: 1; --color: #FFD200">
-        <span>100</span>
-      </div>
-      <div class="gift" style="--i: 2; --color: #00E13C">
-        <span>200</span>
-      </div>
-      <div class="gift" style="--i: 3; --color: #FF0300">
-        <span>300</span>
-      </div>
-      <div class="gift" style="--i: 4; --color: #FF9300">
-        <span>400</span>
-      </div>
-      <div class="gift" style="--i: 5; --color: #EB00FF">
-        <span>500</span>
-      </div>
-      <div class="gift" style="--i: 6; --color: #006FFF">
-        <span>600</span>
+  <div>
+    <h1>Roleta da <span>Páscoa</span></h1>
+  </div>
+
+  <section class="main-content">
+    <div class="wheel-container">
+      <div class="spin-button" onclick="spinWheel()">Spin</div>
+      <div class="wheel">
+        <div class="gift" style="--i: 1; --color: #FFD200">
+          <span>100</span>
+        </div>
+        <div class="gift" style="--i: 2; --color: #00E13C">
+          <span>200</span>
+        </div>
+        <div class="gift" style="--i: 3; --color: #FF0300">
+          <span>300</span>
+        </div>
+        <div class="gift" style="--i: 4; --color: #FF9300">
+          <span>400</span>
+        </div>
+        <div class="gift" style="--i: 5; --color: #EB00FF">
+          <span>500</span>
+        </div>
+        <div class="gift" style="--i: 6; --color: #006FFF">
+          <span>600</span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
