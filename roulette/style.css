@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  background-color: #a9d9e8;
+  background: linear-gradient(to bottom, #a9d9e8, #9ad4e6,#8fd1e6);
   min-height: 100vh;
 
   display: flex;

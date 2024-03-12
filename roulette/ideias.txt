@@ -1,16 +1,10 @@
 - Criar algumas vars css
+- Criar um modo de sorteio aleatório
+- Implementar modo de sorteio manipulado
+
+Paleta de cores:
+- https://br.freepik.com/psd-gratuitas/pagina-inicial-da-promocao-no-dia-da-pascoa_12688393.htm 
 
 Vídeos tutorial e para usar de inspiração:
 - https://www.youtube.com/watch?v=aKmR3wbQQWE
 - https://www.youtube.com/watch?v=F3-lK_-PQr0
-
-Opcões de Gifts:
-- KitKat, beijo e carinho
-- Ovo Cacau Show
-- 25% valor ovo LeoCakes
-- Nada :(
-- 10% valor ovo LeoCakes
-- Pix R$10
-
-Paleta de cores:
-- https://br.freepik.com/psd-gratuitas/pagina-inicial-da-promocao-no-dia-da-pascoa_12688393.htm 
