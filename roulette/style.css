@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Pacifico&display=swap');
 
-.wheel {
-  display: block;
-  width: 300px;
-  transition: transform 4s ease-out;
-}
-
-.wheel.active {
-  transform: rotate(5086deg);
+:root {
+  --chocolate: #934738;
+  --dark-chocolate: #663228;
+  --ocean-blue: #384c5a;
 }
 
 html {
@@ -36,11 +32,11 @@ body {
 }
 
 .chocolate-wave img {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  filter: drop-shadow(0 10px #663228) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.350));
-  z-index: -1; /* Colocar atrás dos outros elementos */
+  filter: drop-shadow(0 10px var(--dark-chocolate)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.350));
+  z-index: -1;
 }
 
 @media screen and (min-width: 950px) {
@@ -56,7 +52,7 @@ body {
 }
 
 h1 {
-  color: #934738;
+  color: var(--chocolate);
   text-shadow: 1px 2px #fff;
   filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.350));
   text-transform: uppercase;
@@ -94,10 +90,11 @@ h1 span {
   font-size: 1.2rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: #384c5a;
+  color: var(--ocean-blue);
 
   user-select: none;
-  filter: drop-shadow(0 0 2px #384c5a);
+  cursor: pointer;
+  filter: drop-shadow(0 0 2px var(--ocean-blue));
   z-index: 10;
 }
 
@@ -120,7 +117,8 @@ h1 span {
   background-color: #fff;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 12px #384c5a;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 12px var(--ocean-blue);
+  transition: transform 5s ease-out;
 }
 
 .wheel-container .wheel .gift {

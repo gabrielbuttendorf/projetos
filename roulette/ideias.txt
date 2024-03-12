@@ -1,6 +1,4 @@
-- Criar algumas vars css
-- Criar um modo de sorteio aleatório
-- Implementar modo de sorteio manipulado
+- Colocar alguns elementos para preencher o background (somente se achar que fica legal)
 
 Paleta de cores:
 - https://br.freepik.com/psd-gratuitas/pagina-inicial-da-promocao-no-dia-da-pascoa_12688393.htm 
