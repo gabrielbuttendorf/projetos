@@ -1,4 +1,3 @@
-- Posicionar botão spin no meio da roleta
 - Criar algumas vars css
 
 Vídeos tutorial e para usar de inspiração:

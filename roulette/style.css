@@ -67,7 +67,7 @@ h1 {
 h1 span {
   text-transform: lowercase;
   font-family: "Pacifico", cursive;
-  font-size: clamp(20px, 8rem, 11vw);
+  font-size: clamp(22px, 8.5rem, 12vw);
 }
 
 .wheel-container {
@@ -91,6 +91,11 @@ h1 span {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #384c5a;
+
   user-select: none;
   filter: drop-shadow(0 0 2px #384c5a);
   z-index: 10;
@@ -131,17 +136,18 @@ h1 span {
   justify-content: center;
   align-items: center;
   user-select: none;
+  text-align: center;
 }
 
 .wheel-container .wheel .gift span {
   position: relative;
-  width: 50%;
+  width: 60%;
   text-align: center;
-  transform: rotate(calc(-60deg * var(--i)));
-  font-size: 1.8rem;
+  transform: rotate(45deg);
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-top: 16px;
   color: #000;
+  padding-left: 16px;
 }
 
 @media screen and (max-width: 568px) {
@@ -151,6 +157,10 @@ h1 span {
   }
 
   .wheel-container .wheel .gift span {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+  }
+
+  .wheel-container .spin-button {
+    font-size: 1rem;
   }
 }
