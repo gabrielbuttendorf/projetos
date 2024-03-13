@@ -31,17 +31,6 @@ body {
   margin-bottom: 4vw;
 }
 
-/*  */
-@media screen and (max-height: 850px) {
-  .chocolate-wave {
-    margin-bottom: 16vw;
-  }
-
-  .main-content {
-    margin-bottom: 32px;
-  }
-}
-
 .chocolate-wave img {
   position: absolute;
   top: 0;
@@ -62,6 +51,16 @@ body {
   }
 }
 
+@media screen and (max-height: 850px) {
+  .chocolate-wave {
+    margin-bottom: 16vw;
+  }
+
+  .main-content {
+    margin-bottom: 32px;
+  }
+}
+
 h1 {
   color: var(--chocolate);
   text-shadow: 1px 2px #fff;
@@ -69,6 +68,7 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   font-size: clamp(20px, 5.5rem, 7.5vw);
+  margin-bottom: 24px;
 }
 
 h1 span {
@@ -87,6 +87,19 @@ h1 span {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.wheel-container .wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 12px var(--ocean-blue);
+  transition: transform 5s ease-out;
 }
 
 .wheel-container .spin-button {
@@ -119,19 +132,6 @@ h1 span {
   clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
 }
 
-.wheel-container .wheel {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 12px var(--ocean-blue);
-  transition: transform 5s ease-out;
-}
-
 .wheel-container .wheel .gift {
   position: absolute;
   width: 50%;
@@ -159,6 +159,7 @@ h1 span {
   padding-left: 16px;
 }
 
+/* MOBILE RESPONSIVITY */
 @media screen and (max-width: 568px) {
   .wheel-container {
     max-width: 350px;
