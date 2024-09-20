@@ -23,7 +23,7 @@ img {
 }
 
 .container {
-  padding: 60px;
+  padding: 90px 60px;
 }
 
 .header {
@@ -46,8 +46,38 @@ img {
   border-color: #F8F5F2;
 }
 
+.timeline .ano {
+  color: #FFC868;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.timeline .retangulo {
+  width: 35%;
+  height: 10px;
+  background: #FFC868;
+}
+
+.timeline span {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.timeline span::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin: 0 10px;
+  background: #FFC868;
+  border-radius: 50%;
+}
+
 @media (max-width: 600px) {
   .container {
-    padding: 60px 20px;
+    padding: 90px 20px;
   }
 }
