@@ -95,6 +95,8 @@ img {
   width: 100%;
   position: relative;
   margin: auto;
+  margin-bottom: 80px;
+  padding: 10px 0;
   max-width: 900px;
 }
 
@@ -117,11 +119,13 @@ img {
   transform: rotateZ(180deg);
 }
 
+.carrossel-container.bordas {
+  border-top: 2px solid #F8F5F2;
+  border-bottom: 2px solid #F8F5F2;
+}
+
 .carrossel {
   display: flex;
-  /* está sendo feito via JS */
-  /* width: calc(var(--tamanhoImg) * 6); */
-  /* animation: scroll 3s linear infinite; */
 }
 
 .carrossel-imagem {
@@ -131,13 +135,19 @@ img {
   object-fit: cover;
 }
 
+/* está sendo feito via JS */
+
+/* .carrossel {
+  width: calc(var(--tamanhoImg) * 6);
+  animation: scroll 3s linear infinite;
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
 
   100% {
-    /* está sendo feito via JS */
-    /* transform: translateX(calc((0px - (var(--tamanhoImg))) * 3)); */
+    transform: translateX(calc((0px - (var(--tamanhoImg))) * 3));
   }
-}
+} */
