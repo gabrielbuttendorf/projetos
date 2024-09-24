@@ -49,8 +49,8 @@
 //   },
 // });
 
-// // fireworks.start();
+// fireworks.start();
 
-// // setTimeout(() => {
-// //   fireworks.waitStop();
-// // }, 6000);
+// setTimeout(() => {
+//   fireworks.waitStop();
+// }, 6000);
