@@ -56,28 +56,60 @@ img {
   align-items: center;
   width: 100%;
   margin-top: 20px;
-  /* justify-content: center; */
 }
 
-.timeline .retangulo {
-  width: 35%;
+.ano .retangulo {
   height: 10px;
+}
+
+.ano.estilo1 {
+  color: #FFC868;
+}
+.ano.estilo1 .retangulo {
+  width: 35%;
+  background: #FFC868;
+}
+.ano.estilo1 span::before {
   background: #FFC868;
 }
 
-.timeline span {
+.ano.estilo2 {
+  color: #FE9140;
+  justify-content: right;
+}
+.ano.estilo2 .retangulo {
+  width: 45%;
+  background: #FE9140;
+  order: 3;
+}
+.ano.estilo2 span::before {
+  background: #FE9140;
+  order: 2;
+}
+
+.ano.estilo3 {
+  color: #FEFE92;
+}
+.ano.estilo3 .retangulo {
+  width: 60%;
+  background: #FEFE92;
+}
+.ano.estilo3 span::before {
+  background: #FEFE92;
+}
+
+.ano span {
   font-size: 2.5rem;
   display: flex;
   align-items: center;
 }
 
-.timeline span::before {
+.ano span::before {
   content: '';
   display: inline-block;
   width: 4px;
   height: 4px;
   margin: 0 10px;
-  background: #FFC868;
   border-radius: 50%;
 }
 
