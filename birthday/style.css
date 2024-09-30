@@ -167,19 +167,23 @@ img {
   object-fit: cover;
 }
 
-/* está sendo feito via JS */
-
-/* .carrossel {
-  width: calc(var(--tamanhoImg) * 6);
-  animation: scroll 3s linear infinite;
+.texto-final {
+  padding: 20px;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
+.texto-final p {
+  color: #F8F5F2;
+  font-size: 1.4rem;
+  text-align: justify;
+}
 
-  100% {
-    transform: translateX(calc((0px - (var(--tamanhoImg))) * 3));
-  }
-} */
+.ano-carrossel-section {
+  opacity: 0;
+  transition: .3s;
+  transform: translateX(-20px);
+}
+
+.ano-carrossel-section.exibir {
+  opacity: 1;
+  transform: translateX(0);
+}
