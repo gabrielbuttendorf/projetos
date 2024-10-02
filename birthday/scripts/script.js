@@ -32,14 +32,20 @@ function animarCarrossel() {
 
 function exibirAnos() {
   const anoCarrosselSection = document.querySelectorAll('.ano-carrossel-section');
+  const textoFinal = document.querySelector('.texto-final');
   const alturaTela = window.innerHeight;
 
   window.addEventListener('scroll', () => {
     anoCarrosselSection.forEach((section) => {
       const topDistance = section.getBoundingClientRect().top - alturaTela * 0.6;
+      const topDistanceTextoFinal = textoFinal.getBoundingClientRect().top - alturaTela * 0.8;
 
       if (topDistance < 0) {
         section.classList.add('exibir');
+      }
+
+      if (topDistanceTextoFinal < 0) {
+        textoFinal.classList.add('exibir');
       }
     });
   });

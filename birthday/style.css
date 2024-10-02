@@ -65,13 +65,15 @@ img {
   margin: 0 auto;
 }
 
-.ano-carrossel-section {
+.ano-carrossel-section,
+.texto-final {
   opacity: 0;
   transition: .3s;
   transform: translateX(-20px);
 }
 
-.ano-carrossel-section.exibir {
+.ano-carrossel-section.exibir,
+.texto-final.exibir {
   opacity: 1;
   transform: translateX(0);
 }
@@ -192,6 +194,7 @@ img {
 
 .texto-final {
   padding: 20px;
+  margin-bottom: 120px;
 }
 
 .texto-final p {
