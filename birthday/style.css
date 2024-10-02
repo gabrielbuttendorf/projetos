@@ -1,5 +1,12 @@
 :root {
-  --tamanhoImg: 250px
+  --tamanhoImg: 250px;
+
+  --cor-p1: #f5c6f5;
+  --cor-p2: #c89ae9;
+  --cor-p3: #a58fe6;
+
+  --cor-cinza: #2c2730;
+  --cor-branco: #fbf5ff;
 }
 
 * {
@@ -9,7 +16,7 @@
 }
 
 body {
-  background: #222;
+  background: var(--cor-cinza);
   font-family: 'Cute Font', sans-serif;
 }
 
@@ -37,7 +44,7 @@ img {
 }
 
 .header h1 {
-  color: #F3EFE9;
+  color: var(--cor-branco);
   font-size: 3.5rem;
   text-align: center;
 }
@@ -47,7 +54,10 @@ img {
   border-right: 10px solid;
   border-left: 10px solid;
   border-bottom: 60px solid;
-  border-color: #F8F5F2;
+  border-color: var(--cor-branco);
+  position: relative;
+
+  box-shadow: 6px 20px var(--cor-p3);
 }
 
 .timeline, .texto-final {
@@ -71,9 +81,9 @@ img {
   content: '';
   height: 100%;
   position: absolute;
-  width: 10%;
+  width: 8%;
   z-index: 2;
-  background: linear-gradient(to right, #222 0%, rgba(34, 34, 34, 0) 100%);
+  background: linear-gradient(to right, var(--cor-cinza) 0%, rgba(34, 34, 34, 0) 100%);
 }
 
 .ano-carrossel-section::after {
@@ -83,7 +93,7 @@ img {
 }
 
 .timeline .ano {
-  color: #FFC868;
+  color: var(--cor-p3);
   display: flex;
   align-items: center;
   width: 100%;
@@ -96,39 +106,39 @@ img {
 }
 
 .ano.estilo1 {
-  color: #FFC868;
+  color: var(--cor-p3);
 }
 .ano.estilo1 .retangulo {
   width: 35%;
-  background: #FFC868;
+  background: var(--cor-p3);
 }
 .ano.estilo1 span::before {
-  background: #FFC868;
+  background: var(--cor-p3);
 }
 
 .ano.estilo2 {
-  color: #FE9140;
+  color: var(--cor-p2);
   justify-content: right;
 }
 .ano.estilo2 .retangulo {
   width: 45%;
-  background: #FE9140;
+  background: var(--cor-p2);
   order: 3;
 }
 .ano.estilo2 span::before {
-  background: #FE9140;
+  background: var(--cor-p2);
   order: 2;
 }
 
 .ano.estilo3 {
-  color: #FEFE92;
+  color: var(--cor-p1);
 }
 .ano.estilo3 .retangulo {
   width: 60%;
-  background: #FEFE92;
+  background: var(--cor-p1);
 }
 .ano.estilo3 span::before {
-  background: #FEFE92;
+  background: var(--cor-p1);
 }
 
 .ano span {
@@ -165,8 +175,8 @@ img {
 }
 
 .carrossel-container.bordas {
-  border-top: 2px solid #F8F5F2;
-  border-bottom: 2px solid #F8F5F2;
+  border-top: 2px solid var(--cor-branco);
+  border-bottom: 2px solid var(--cor-branco);
 }
 
 .carrossel {
@@ -185,7 +195,7 @@ img {
 }
 
 .texto-final p {
-  color: #F8F5F2;
+  color: #FFF;
   font-size: 1.4rem;
   text-align: justify;
 }

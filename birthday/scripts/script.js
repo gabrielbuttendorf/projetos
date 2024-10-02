@@ -16,7 +16,7 @@ function animarCarrossel() {
     slider.animate(
       [{ transform: sliderDirection[0] }, { transform: sliderDirection[1] }],
       {
-        duration: 10000,
+        duration: 16000,
         easing: 'linear',
         iterations: Infinity,
       }
