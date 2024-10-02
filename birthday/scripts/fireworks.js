@@ -13,8 +13,8 @@ const fireworks = new Fireworks.default(fireworksContainer, {
   flickering: 50,
   lineStyle: 'round',
   hue: {
-    min: 0,
-    max: 360,
+    min: 270,
+    max: 270,
   },
   delay: {
     min: 30,
