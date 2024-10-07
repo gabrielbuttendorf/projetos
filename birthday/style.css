@@ -197,8 +197,15 @@ img {
   margin-bottom: 120px;
 }
 
-.texto-final p {
+.texto-final p, .texto-final span {
+  font-family: "Exo 2", sans-serif;
   color: #FFF;
-  font-size: 1.4rem;
+  font-size: 1.15rem;
+  line-height: 1.45;
+  letter-spacing: 0.6px;
   text-align: justify;
+}
+
+.texto-final p {
+  margin-bottom: 20px;
 }
