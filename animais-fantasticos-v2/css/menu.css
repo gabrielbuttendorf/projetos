@@ -1,0 +1,93 @@
+@import './animacoes.css';
+
+.menu {
+  background: #FFBB55;
+  display: grid;
+  grid-column: 3 / -1;
+  margin: 2rem 0;
+}
+
+.menu [data-menu="list"] {
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  color: #222;
+  padding: 10px;
+}
+
+.menu li:last-child a::after {
+  content: '►';
+  margin-left: 5px;
+}
+
+.menu a, [data-menu="button"] {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+[data-menu="button"] {
+  display: none;
+  padding: .5rem 1rem;
+  background: #222;
+  color: #fff;
+  align-items: center;
+  z-index: 20;
+}
+
+@media (max-width: 700px) {
+  .menu {
+    background: #FFBB55;
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 10px;
+  }
+
+  [data-menu="button"] {
+    display: flex;
+  }
+
+  [data-menu="button"]::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 2px;
+    background: #fff;
+    margin-right: 4px;
+    box-shadow: 0 4px #fff, 0 -4px #fff;
+    transition: transform .3s;
+  }
+
+  [data-menu="button"].ativo::before {
+    transform: rotate(90deg);
+  }
+
+  .menu [data-menu="list"] {
+    display: none;
+    position: absolute;
+    width: 160px;
+    flex-direction: column;
+    background: #FFBB55;
+    left: 0;
+    top: 0;
+    padding: 60px 0 16px 0;
+    z-index: 10;
+    box-shadow: 2px 2px 4px rgba(34, 34, 34, 0.3);
+    animation: rightToLeft .3s forwards;
+  }
+
+  .menu [data-menu="list"].ativo {
+    display: flex;
+  }
+}
