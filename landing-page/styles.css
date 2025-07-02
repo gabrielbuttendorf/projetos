@@ -3,14 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
 
   color: #1a1a1a;
 }
 
+li {
+  list-style: none;
+}
+
 .content {
+  width: 100%;
   max-width: 1400px;
+  padding: 2rem;
 }
 
 header {
@@ -26,7 +32,6 @@ header nav {
 
 header nav ul {
   width: 100%;
-  padding: 2rem;
 
   display: flex;
   align-items: center;
@@ -38,11 +43,6 @@ header nav ul {
 header nav ul .home-icon {
   margin-right: auto;
   color: #fffdf9;
-}
-
-header nav ul li {
-  list-style: none;
-  
 }
 
 header nav ul li a {
@@ -85,20 +85,110 @@ header .myself {
 
 .myself img {
   justify-self: end;
-  
+
   width: 40vw;
   max-height: 800px;
   object-fit: cover;
 }
 
 main > section {
-  /* background: #ffd7d7; */
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-main > section h2 {
-  /* text-align: center; */
+main > section + section .content {
+  border-top: 2px solid #b19c76;
+}
+
+main > section .content {
+  margin: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+main > section .content h2 {
+  font-size: 3rem;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+main > section .content h2::before {
+  content: "";
+  display: block;
+  height: 0.3rem;
+  width: 4rem;
+  background: #186eb9;
+}
+
+main > section .content p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.skills ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+
+@media (max-width: 768px) {
+  .skills ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills ul li {
+  width: 100%;
+}
+
+.skills span {
+  display: block;
+  padding: 2.4rem;
+
+  border-radius: 8px;
+
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  color: #fffdf9;
+
+  box-shadow: 0 5px 4px #e0e0e0;
+  user-select: none;
+}
+
+.html {
+  background: linear-gradient(90deg, #ff8162, #e34c26);
+}
+.css {
+  background: linear-gradient(90deg, #5ea2fc, #2678e4);
+}
+.js {
+  background: linear-gradient(90deg, #ffea5e, #ebbf2f);
+}
+.react {
+  background: linear-gradient(90deg, #89e5ff, #36b4ee);
+}
+.git {
+  background: linear-gradient(90deg, #a369ff, #7629f3);
+}
+.sql {
+  background: linear-gradient(90deg, #7bb1da, #3e83b8);
+}
+.skills .js,
+.skills .react {
+  color: #1a1a1a;
 }
