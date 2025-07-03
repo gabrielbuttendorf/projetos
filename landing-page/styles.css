@@ -49,6 +49,7 @@ header nav ul {
 header nav ul .home-icon {
   margin-right: auto;
   color: #fffdf9;
+  user-select: none;
 }
 
 header nav ul li a {
@@ -98,7 +99,8 @@ header .myself-section {
 
 /* MAIN (TODAS AS SECTIONS) */
 
-main > section {
+main > section,
+main > aside {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -258,6 +260,35 @@ main > section .content p {
 
 .project-link:hover {
   transform: scale(1.015);
+}
+
+.extras .content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.extras .content p:first-child {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.extras .content span {
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(90deg, #a4d4ff, #69a9e0);
+  
+  padding: 0.875rem;
+  border-radius: 8px;
+
+  transition: all 0.1s;
+  user-select: none;
+}
+
+.extras .content span:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #023059;
 }
 
 @media (max-width: 768px) {
