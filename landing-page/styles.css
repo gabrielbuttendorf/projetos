@@ -291,6 +291,25 @@ main > section .content p {
   box-shadow: 0 0 0 1px #023059;
 }
 
+footer {
+  background: linear-gradient(90deg, #023059, #001a31);
+}
+
+footer .content {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .content p, 
+footer .content h2 {
+  color: #fffdf9;
+  line-height: 1.6;
+}
+
+footer .content h2 {
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
   .skills-section ul {
     grid-template-columns: repeat(2, 1fr);
