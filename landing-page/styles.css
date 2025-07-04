@@ -21,6 +21,10 @@ a {
   text-decoration: none;
 }
 
+a[href^="tel"] {
+  color: #fffdf9 !important;
+}
+
 .content {
   width: 100%;
   max-width: 1400px;
