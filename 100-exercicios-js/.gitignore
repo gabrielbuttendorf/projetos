@@ -1,0 +1,25 @@
+# Ignore compiled output directories
+/build/
+/dist/
+/target/
+/out/
+
+# Ignore dependency caches and modules
+node_modules/
+/venv/
+.venv/
+
+# Ignore log files and temporary files
+*.log
+*.tmp
+temp/
+
+# Ignore OS and editor-specific files
+.DS_Store # macOS system files
+Thumbs.db # Windows system files
+.vscode/ # VS Code configuration
+.idea/ # IntelliJ configuration
+*.sublime-workspace # Sublime Text workspace files
+
+# Ignore sensitive environment files
+.env

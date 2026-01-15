@@ -15,7 +15,7 @@ function perguntar() {
   if (i > 4) {
     console.log(`\nAlunos cadastrados: ${alunos}`);
     sortear()
-    rl.close;
+    rl.close();
     return;
   }
 
