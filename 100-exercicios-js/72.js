@@ -5,7 +5,7 @@
 // (entre 0 e 20)
 // e mostrá-lo por extenso
 
-extensos = [
+const extensos = [
   "zero",
   "um",
   "dois",
