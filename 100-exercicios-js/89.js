@@ -32,6 +32,7 @@ function perguntar() {
             return;
           }
 
+          console.clear();
           perguntar();
         });
       });
@@ -50,9 +51,8 @@ function exibirAluno() {
 
       alunos.forEach((aluno) => {
         if (aluno.nome.toLowerCase() === resposta.toLowerCase()) {
-          console.clear();
-          console.log(aluno);
           exibirBoletim();
+          console.log("\n", aluno);
           exibirAluno();
         }
         return;
@@ -65,6 +65,7 @@ function exibirAluno() {
 }
 
 function exibirBoletim() {
+  console.clear();
   console.log("\n========== BOLETIM ==========\n");
   for (let i = 0; i < alunos.length; i++) {
     console.log(alunos[i].nome.padEnd(15), "| Média: ", alunos[i].media);
